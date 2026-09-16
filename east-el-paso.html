@@ -67,12 +67,17 @@
 .site-head .head-phone:hover{color:var(--aqua)}
 .site-head .head-phone svg{opacity:.8;flex:0 0 17px}
 @media(max-width:1220px){.site-head .head-phone span{display:none}.site-head .head-phone{width:44px;height:44px;justify-content:center;border-radius:50%;background:rgba(255,255,255,.1)}}
+.site-head .cta-stack{display:flex;flex-direction:column;align-items:stretch;gap:4px}
+.site-head .lang-link{color:#9fc2bd;font-size:12.5px;font-weight:600;text-align:center}
+.site-head .lang-link:hover{color:#fff;text-decoration:underline}
+.site-head .dd .dd-all{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+.site-head .dd .dd-all a{color:var(--deep);font-weight:700}
 .site-head .cta-sm{background:var(--teal-cta);color:#fff;padding:12px 22px;border-radius:999px;font-weight:700;font-size:14.5px;white-space:nowrap}
 .site-head .cta-sm:hover{background:var(--aqua);color:#fff}
 .mm-btn{display:none;background:transparent;border:0;cursor:pointer;padding:8px;color:#fff}
 .mm-btn span{display:block;width:26px;height:3px;background:#fff;border-radius:3px;margin:5px 0;transition:.2s}
 .mm-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}.mm-btn.open span:nth-child(2){opacity:0}.mm-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-@media(max-width:1060px){.site-head nav{display:none}.site-head .bar .cta-sm{display:none}.site-head .head-phone{margin-left:auto;margin-right:4px}.mm-btn{display:block}.site-head .bar{height:70px}.site-head .logo img{height:54px}}
+@media(max-width:1060px){.site-head nav{display:none}.site-head .bar .cta-stack{display:none}.site-head .head-phone{margin-left:auto;margin-right:4px}.mm-btn{display:block}.site-head .bar{height:70px}.site-head .logo img{height:54px}}
 
 /* mobile menu, nested accordion */
 .mobile-menu{display:none;position:fixed;inset:0;z-index:59;background:var(--ink);color:#fff;overflow:auto;padding:120px 22px 40px}
@@ -86,6 +91,7 @@
 .mobile-menu .mm-sub .mm-cat{font-size:16px;font-weight:600}
 .mobile-menu .mm-sub .mm-sub{background:rgba(255,255,255,.12);border-left:3px solid var(--teal)}
 .mobile-menu .mm-sub .mm-sub a{font-size:15px}
+.mobile-menu .mm-lang{text-align:center;color:#9fc2bd;font-weight:600;border:0;margin-top:4px}
 .mobile-menu .mm-cta{margin-top:24px;background:var(--teal);text-align:center;border-radius:999px;border:0;font-weight:700}
 .mobile-menu .mm-phones{margin-top:22px;font-size:14px;color:#9fc2bd;line-height:2}.mobile-menu .mm-phones a{display:inline;border:0;padding:0;font-size:15px}
 body.mm-lock{overflow:hidden}
@@ -102,154 +108,63 @@ body.mm-lock{overflow:hidden}
   <a class="logo" href="/"><img src="/images/logo-old-white.png" alt="Smile 4 Less Orthodontics" width="258" height="200"></a>
   <nav aria-label="Main">
     <ul>
-      <li class="has-mega"><a href="/services">Services</a>
-        <div class="mega c4">
-          <div class="cols">
-            <div>
-              <h4>Braces</h4>
-              <ul>
-                <li><a href="/braces">Braces<small>Metal braces, all ages</small></a></li>
-                <li><a href="/clear-braces">Clear Braces<small>Ceramic, less visible</small></a></li>
-                <li><a href="/colored-braces">Colored Braces<small>Pick your colors</small></a></li>
-                <li><a href="/types-of-braces">Types of Braces<small>Compared honestly</small></a></li>
-              </ul>
-            </div>
-            <div>
-              <h4>Invisalign</h4>
-              <ul>
-                <li><a href="/invisalign">Invisalign<small>Clear aligners</small></a></li>
-                <li><a href="/invisalign-cost-el-paso">Invisalign Cost</a></li>
-                <li><a href="/braces-vs-invisalign">Braces vs. Invisalign</a></li>
-              </ul>
-              <h4 style="margin-top:18px">By Age</h4>
-              <ul>
-                <li><a href="/kids-teens">Kids &amp; Teens</a></li>
-                <li><a href="/adult-orthodontics">Adults</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4>Retainers &amp; Care</h4>
-              <ul>
-                <li><a href="/retainers">Retainers</a></li>
-                <li><a href="/retainer-replacement-el-paso">Retainer Replacement</a></li>
-                <li><a href="/permanent-retainer">Permanent Retainers</a></li>
-                <li><a href="/emergency-care">Emergency Care<small>Broken bracket? Poking wire?</small></a></li>
-                <li><a href="/new-patients">New Patients</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4>Conditions We Treat</h4>
-              <ul>
-                <li><a href="/crowded-teeth">Crowded Teeth</a></li>
-                <li><a href="/overbite-treatment">Overbite</a></li>
-                <li><a href="/underbite-treatment">Underbite</a></li>
-                <li><a href="/gap-teeth">Gap Teeth</a></li>
-                <li><a href="/airway-orthodontics">Airway-Friendly Ortho</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="foot">
-            <span class="hint">Not sure what you need? <b>Your first visit is free</b>, exam and X-ray included.</span>
-            <span><a class="btn lineT sm" href="/services">All treatments</a> <a class="btn teal sm" href="/free-consultation">Free Consultation</a></span>
-          </div>
-        </div>
+      <li class="has-dd"><a href="/services">Services</a>
+        <ul class="dd">
+          <li><a href="/braces">Braces</a></li>
+          <li><a href="/clear-braces">Clear Braces</a></li>
+          <li><a href="/invisalign">Invisalign</a></li>
+          <li><a href="/kids-teens">Kids &amp; Teens</a></li>
+          <li><a href="/adult-orthodontics">Adults</a></li>
+          <li><a href="/retainers">Retainers</a></li>
+          <li class="dd-all"><a href="/services">View all treatments →</a></li>
+        </ul>
       </li>
-      <li class="has-mega"><a href="/about">Why Choose Us</a>
-        <div class="mega c3">
-          <div class="cols">
-            <div>
-              <h4>The Practice</h4>
-              <ul>
-                <li><a href="/about">The Smile 4 Less Difference<small>What makes us different</small></a></li>
-                <li><a href="/meet-the-doctors">Meet the Doctors<small>Six orthodontists</small></a></li>
-                <li><a href="/meet-the-team">Meet the Team<small>The bilingual crew</small></a></li>
-              </ul>
-            </div>
-            <div>
-              <h4>Cost &amp; Financing</h4>
-              <ul>
-                <li><a href="/financing">Financing &amp; Payment Plans<small>$99 down, as low as $99/mo</small></a></li>
-                <li><a href="/affordable-braces-el-paso">Affordable Braces<small>Yes, we're the $99 braces people</small></a></li>
-                <li><a href="/braces-cost-el-paso">How Much Do Braces Cost?</a></li>
-                <li><a href="/does-insurance-cover-braces">Does Insurance Cover Braces?</a></li>
-                <li><a href="/medicaid-braces-texas">Medicaid &amp; Braces in Texas</a></li>
-                <li><a href="/military-families">Military Families<small>10% off · Fort Bliss</small></a></li>
-              </ul>
-            </div>
-            <div>
-              <h4>Proof</h4>
-              <ul>
-                <li><a href="/reviews">Patient Reviews<small>Hundreds of 5-star reviews</small></a></li>
-                <li><a href="/smile-gallery">Smile Gallery<small>Before &amp; after</small></a></li>
-              </ul>
-              <h4 style="margin-top:18px">Get In Touch</h4>
-              <ul>
-                <li><a href="/contact">Contact Us</a></li>
-                <li><a href="/free-consultation">Schedule a Free Consultation</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="foot">
-            <span class="hint">Real orthodontists, three locations, and payments that fit. <b>Se habla español.</b></span>
-            <span><a class="btn teal sm" href="/free-consultation">Free Consultation</a></span>
-          </div>
-        </div>
+      <li class="has-dd"><a href="/about">Why Choose Us</a>
+        <ul class="dd">
+          <li><a href="/about">The Smile 4 Less Difference</a></li>
+          <li><a href="/affordable-braces-el-paso">Affordable Braces</a></li>
+          <li><a href="/meet-the-doctors">Meet the Doctors</a></li>
+          <li><a href="/meet-the-team">Meet the Team</a></li>
+          <li><a href="/reviews">Patient Reviews</a></li>
+        </ul>
       </li>
       <li class="has-dd"><a href="/new-patients">Resources</a>
         <ul class="dd">
-          <li><a href="/new-patients">New Patient Forms<small>English &amp; Spanish PDFs</small></a></li>
-          <li><a href="/make-a-payment">Make a Payment<small>Secure online portal</small></a></li>
-          <li><a href="/refer-a-patient">Refer a Patient<small>Patients &amp; referring dentists</small></a></li>
-          <li><a href="/living-with-braces">Living With Braces<small>Care guide</small></a></li>
-          <li><a href="/emergency-care">Orthodontic Emergency</a></li>
-          <li><a href="/brackets-el-paso">En español<small>Brackets en El Paso</small></a></li>
+          <li><a href="/new-patients">New Patient Forms</a></li>
+          <li><a href="/make-a-payment">Make a Payment</a></li>
+          <li><a href="/financing">Financing &amp; Insurance</a></li>
+          <li><a href="/refer-a-patient">Refer a Patient</a></li>
+          <li><a href="/living-with-braces">Living With Braces</a></li>
         </ul>
       </li>
       <li class="has-dd"><a href="/locations">Locations</a>
         <ul class="dd">
-          <li><a href="/east-el-paso">East El Paso<small>12244 Montana · open to 9:30pm</small></a></li>
-          <li><a href="/west-el-paso">West El Paso<small>7480 Remcon Circle</small></a></li>
-          <li><a href="/horizon-city">Horizon City<small>13468 Eastlake Blvd</small></a></li>
-          <li><a href="/locations">All Locations &amp; Hours</a></li>
-          <li><a href="/areas-we-serve">Areas We Serve<small>Fort Bliss, Socorro, Canutillo &amp; more</small></a></li>
+          <li><a href="/east-el-paso">East El Paso<small>Open until 9:30pm</small></a></li>
+          <li><a href="/west-el-paso">West El Paso</a></li>
+          <li><a href="/horizon-city">Horizon City</a></li>
+          <li><a href="/areas-we-serve">Areas We Serve</a></li>
         </ul>
       </li>
     </ul>
   </nav>
   <a class="head-phone" href="tel:9153043090" aria-label="Call Smile 4 Less at (915) 304-3090"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg><span>(915) 304-3090</span></a>
-  <a class="cta-sm" href="/free-consultation">Free Consultation</a>
+  <div class="cta-stack">
+    <a class="cta-sm" href="/free-consultation">Free Consultation</a>
+    <a class="lang-link" href="/brackets-el-paso" lang="es">Ver en español</a>
+  </div>
   <button class="mm-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
 </div></header>
 <div class="mobile-menu" id="mobile-menu">
   <button class="mm-cat">Services</button>
-  <div class="mm-sub">
-    <a href="/services"><strong>All Treatments</strong></a>
-    <button class="mm-cat">Braces</button>
-    <div class="mm-sub"><a href="/braces">Braces</a><a href="/clear-braces">Clear Braces</a><a href="/colored-braces">Colored Braces</a><a href="/types-of-braces">Types of Braces</a></div>
-    <button class="mm-cat">Invisalign</button>
-    <div class="mm-sub"><a href="/invisalign">Invisalign</a><a href="/invisalign-cost-el-paso">Invisalign Cost</a><a href="/braces-vs-invisalign">Braces vs. Invisalign</a></div>
-    <button class="mm-cat">By Age</button>
-    <div class="mm-sub"><a href="/kids-teens">Kids &amp; Teens</a><a href="/adult-orthodontics">Adults</a></div>
-    <button class="mm-cat">Retainers &amp; Care</button>
-    <div class="mm-sub"><a href="/retainers">Retainers</a><a href="/retainer-replacement-el-paso">Retainer Replacement</a><a href="/permanent-retainer">Permanent Retainers</a><a href="/emergency-care">Emergency Care</a><a href="/living-with-braces">Living With Braces</a></div>
-    <button class="mm-cat">Conditions</button>
-    <div class="mm-sub"><a href="/crowded-teeth">Crowded Teeth</a><a href="/overbite-treatment">Overbite</a><a href="/underbite-treatment">Underbite</a><a href="/gap-teeth">Gap Teeth</a><a href="/airway-orthodontics">Airway-Friendly Ortho</a></div>
-  </div>
+  <div class="mm-sub"><a href="/braces">Braces</a><a href="/clear-braces">Clear Braces</a><a href="/invisalign">Invisalign</a><a href="/kids-teens">Kids &amp; Teens</a><a href="/adult-orthodontics">Adults</a><a href="/retainers">Retainers</a><a href="/services">View all treatments →</a></div>
   <button class="mm-cat">Why Choose Us</button>
-  <div class="mm-sub">
-    <button class="mm-cat">The Practice</button>
-    <div class="mm-sub"><a href="/about">The Smile 4 Less Difference</a><a href="/meet-the-doctors">Meet the Doctors</a><a href="/meet-the-team">Meet the Team</a><a href="/new-patients">New Patients</a></div>
-    <button class="mm-cat">Cost &amp; Financing</button>
-    <div class="mm-sub"><a href="/financing">Financing &amp; Payment Plans</a><a href="/affordable-braces-el-paso">Affordable Braces ($99)</a><a href="/braces-cost-el-paso">How Much Do Braces Cost?</a><a href="/does-insurance-cover-braces">Does Insurance Cover Braces?</a><a href="/medicaid-braces-texas">Medicaid &amp; Braces in Texas</a><a href="/military-families">Military Families</a></div>
-    <button class="mm-cat">Proof</button>
-    <div class="mm-sub"><a href="/reviews">Patient Reviews</a><a href="/smile-gallery">Smile Gallery</a></div>
-    <a href="/contact">Contact Us</a>
-  </div>
+  <div class="mm-sub"><a href="/about">The Smile 4 Less Difference</a><a href="/affordable-braces-el-paso">Affordable Braces</a><a href="/meet-the-doctors">Meet the Doctors</a><a href="/meet-the-team">Meet the Team</a><a href="/reviews">Patient Reviews</a></div>
   <button class="mm-cat">Resources</button>
-  <div class="mm-sub"><a href="/new-patients">New Patient Forms</a><a href="/make-a-payment">Make a Payment</a><a href="/refer-a-patient">Refer a Patient</a><a href="/living-with-braces">Living With Braces</a><a href="/emergency-care">Orthodontic Emergency</a><a href="/brackets-el-paso">En español</a></div>
+  <div class="mm-sub"><a href="/new-patients">New Patient Forms</a><a href="/make-a-payment">Make a Payment</a><a href="/financing">Financing &amp; Insurance</a><a href="/refer-a-patient">Refer a Patient</a><a href="/living-with-braces">Living With Braces</a></div>
   <button class="mm-cat">Locations</button>
-  <div class="mm-sub"><a href="/east-el-paso">East El Paso</a><a href="/west-el-paso">West El Paso</a><a href="/horizon-city">Horizon City</a><a href="/locations">All Locations &amp; Hours</a><a href="/areas-we-serve">Areas We Serve</a></div>
+  <div class="mm-sub"><a href="/east-el-paso">East El Paso</a><a href="/west-el-paso">West El Paso</a><a href="/horizon-city">Horizon City</a><a href="/areas-we-serve">Areas We Serve</a></div>
   <a class="mm-cta" href="/free-consultation">Schedule a Free Consultation</a>
+  <a class="mm-lang" href="/brackets-el-paso" lang="es">Ver en español</a>
   <div class="mm-phones">East <a href="tel:9153043090">(915) 304-3090</a><br>West <a href="tel:9152197698">(915) 219-7698</a><br>Horizon <a href="tel:9153073382">(915) 307-3382</a></div>
 </div>
 <script>
@@ -295,7 +210,7 @@ body.mm-lock{overflow:hidden}
 
     <h2>Doctors at this location</h2>
     <div class="grid2" style="margin-top:20px">
-      <a class="card hov" href="/dr-alan-curtis"><img src="/images/doctors/dr-curtis.jpg" alt="Dr. Alan Curtis" style="height:260px;object-position:top" width="333" height="482"><div class="b"><h3>Dr. Alan Curtis</h3><p>DDS, MS · Board-certified orthodontist · Fluent in Spanish</p><span class="link">Meet Dr. Curtis →</span></div></a>
+      <a class="card hov" href="/dr-alan-curtis"><img src="/images/doctors/dr-curtis.jpg" alt="Dr. Alan Curtis" style="height:260px;object-position:top" width="333" height="482"><div class="b"><h3>Dr. Alan Curtis</h3><p>DDS, MS · Orthodontist · Fluent in Spanish</p><span class="link">Meet Dr. Curtis →</span></div></a>
       <a class="card hov" href="/dr-tom-tipton"><img src="/images/doctors/dr-tipton.jpg" alt="Dr. Tom Tipton" style="height:260px;object-position:top" width="404" height="510"><div class="b"><h3>Dr. Tom Tipton</h3><p>DMD, MDS · Orthodontist</p><span class="link">Meet Dr. Tipton →</span></div></a>
     </div>
 
@@ -345,13 +260,14 @@ body.mm-lock{overflow:hidden}
 <!-- FOOTER:START -->
 <style>
 .site-foot{background:var(--ink);color:#cfe3e0;padding:64px 0 28px;font-family:var(--sans)}
+.site-foot .floc{background:transparent}
 .site-foot .fcols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.15fr;gap:26px;font-size:14px}
 .site-foot .flogo img{height:96px;width:auto;margin-bottom:14px}
 .site-foot h3{color:#fff;font-family:var(--disp);font-size:16px;margin:0 0 12px;text-transform:uppercase;letter-spacing:.04em}
 .site-foot a,.site-foot .mut{color:#9fc2bd;display:block;margin-bottom:6px;text-decoration:none}.site-foot a:hover{color:#fff}
-.site-foot .loc b{color:#fff;display:block;margin-top:12px}.site-foot .loc h4+b{margin-top:0}
-.site-foot .loc span{display:block;color:#9fc2bd;font-size:13px;line-height:1.55}
-.site-foot .loc a,.site-foot .fbar a{display:inline;margin:0}
+.site-foot .floc b{color:#fff;display:block;margin-top:12px}.site-foot .floc h3+b{margin-top:0}
+.site-foot .floc span{display:block;color:#9fc2bd;font-size:13px;line-height:1.55}
+.site-foot .floc a,.site-foot .fbar a{display:inline;margin:0}
 .site-foot .fbar{border-top:1px solid #21403c;margin-top:36px;padding-top:18px;font-size:12px;color:#7fa39d;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 18px}
 .site-foot .fbar a{margin-right:12px}
 .site-foot .fine{font-size:12px;color:#7fa39d;margin-top:22px;line-height:1.6;max-width:920px}
@@ -360,25 +276,25 @@ body.mm-lock{overflow:hidden}
 @media(max-width:520px){.site-foot .fcols{grid-template-columns:1fr}}
 @media(max-width:860px){
   .site-foot a{display:flex;align-items:center;min-height:44px;padding:2px 0;margin-bottom:0}
-  .site-foot .loc a{display:inline-block;min-height:0;padding:4px 0}
+  .site-foot .floc a{display:inline-block;min-height:0;padding:4px 0}
   .site-foot .fbar a{display:inline-block;min-height:44px;line-height:44px}
 }
 @media(max-width:760px){
-  .site-foot .fcols>div:not(:first-child):not(.loc){display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
-  .site-foot .fcols>div:not(:first-child):not(.loc) h3{grid-column:1/-1}
+  .site-foot .fcols>div:not(:first-child):not(.floc){display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+  .site-foot .fcols>div:not(:first-child):not(.floc) h3{grid-column:1/-1}
 }
-@media(max-width:400px){.site-foot .fcols>div:not(:first-child):not(.loc){grid-template-columns:1fr}}
+@media(max-width:400px){.site-foot .fcols>div:not(:first-child):not(.floc){grid-template-columns:1fr}}
 </style>
 <footer class="site-foot"><div class="wrap">
   <div class="fcols">
     <div><a class="flogo" href="/"><img src="/images/logo-old-white.png" alt="Smile 4 Less Orthodontics" width="258" height="200"></a><div class="mut">Affordable braces &amp; Invisalign for El Paso families. Kids, teens, and adults. Free first visit, $99 down, and payments as low as $99/month.</div><a href="/free-consultation" style="color:var(--aqua);font-weight:700;margin-top:10px">Schedule a Free Consultation →</a></div>
-    <div><h3>Services</h3><a href="/braces">Braces</a><a href="/clear-braces">Clear Braces</a><a href="/colored-braces">Colored Braces</a><a href="/types-of-braces">Types of Braces</a><a href="/invisalign">Invisalign</a><a href="/kids-teens">Kids &amp; Teens</a><a href="/adult-orthodontics">Adults</a><a href="/retainers">Retainers</a><a href="/retainer-replacement-el-paso">Retainer Replacement</a><a href="/permanent-retainer">Permanent Retainers</a><a href="/emergency-care">Emergency Care</a><a href="/airway-orthodontics">Airway-Friendly Ortho</a><a href="/services">All Treatments</a></div>
-    <div><h3>Why Choose Us</h3><a href="/about">The Smile 4 Less Difference</a><a href="/meet-the-doctors">Meet the Doctors</a><a href="/meet-the-team">Meet the Team</a><a href="/reviews">Patient Reviews</a><a href="/smile-gallery">Smile Gallery</a><a href="/financing">Financing &amp; Payment Plans</a><a href="/affordable-braces-el-paso">Affordable ($99) Braces</a><a href="/braces-cost-el-paso">Braces Cost in El Paso</a><a href="/does-insurance-cover-braces">Insurance &amp; Braces</a><a href="/military-families">Military Families</a><a href="/contact">Contact Us</a></div>
-    <div><h3>Resources</h3><a href="/new-patients">New Patient Forms</a><a href="/make-a-payment">Make a Payment</a><a href="/refer-a-patient">Refer a Patient</a><a href="/living-with-braces">Living With Braces</a><a href="/medicaid-braces-texas">Medicaid &amp; Braces</a><a href="/invisalign-cost-el-paso">Invisalign Cost</a><a href="/areas-we-serve">Areas We Serve</a><a href="/brackets-el-paso">En español</a></div>
-    <div class="loc"><h3>Locations</h3>
-      <b><a href="/east-el-paso" style="color:#fff">East El Paso</a></b><span>12244 Montana Ave, Bldg A Ste 400<br>El Paso, TX 79938 · <a href="tel:9153043090">(915) 304-3090</a><br>Mon–Fri 7:00am–9:30pm</span>
-      <b><a href="/west-el-paso" style="color:#fff">West El Paso</a></b><span>7480 Remcon Circle<br>El Paso, TX 79912 · <a href="tel:9152197698">(915) 219-7698</a><br>Mon–Fri 9:00am–5:00pm</span>
-      <b><a href="/horizon-city" style="color:#fff">Horizon City</a></b><span>13468 Eastlake Blvd<br>Horizon City, TX 79928 · <a href="tel:9153073382">(915) 307-3382</a><br>Mon–Fri 7:00am–4:30pm</span>
+    <div><h3>Services</h3><a href="/braces">Braces</a><a href="/clear-braces">Clear Braces</a><a href="/invisalign">Invisalign</a><a href="/kids-teens">Kids &amp; Teens</a><a href="/adult-orthodontics">Adults</a><a href="/retainers">Retainers</a><a href="/services">All Treatments</a></div>
+    <div><h3>Why Choose Us</h3><a href="/about">The Smile 4 Less Difference</a><a href="/affordable-braces-el-paso">Affordable Braces</a><a href="/meet-the-doctors">Meet the Doctors</a><a href="/meet-the-team">Meet the Team</a><a href="/reviews">Patient Reviews</a><a href="/smile-gallery">Smile Gallery</a></div>
+    <div><h3>Resources</h3><a href="/new-patients">New Patient Forms</a><a href="/make-a-payment">Make a Payment</a><a href="/financing">Financing &amp; Insurance</a><a href="/braces-cost-el-paso">Braces Cost</a><a href="/refer-a-patient">Refer a Patient</a><a href="/living-with-braces">Living With Braces</a><a href="/contact">Contact Us</a><a href="/brackets-el-paso" lang="es">Ver en español</a></div>
+    <div class="floc"><h3>Locations</h3>
+      <b><a href="/east-el-paso" style="color:#fff">East El Paso</a></b><span>12244 Montana Ave, Bldg A Ste 400<br>El Paso, TX 79938<br><a href="tel:9153043090">(915) 304-3090</a><br>Mon–Fri 7:00am–9:30pm</span>
+      <b><a href="/west-el-paso" style="color:#fff">West El Paso</a></b><span>7480 Remcon Circle<br>El Paso, TX 79912<br><a href="tel:9152197698">(915) 219-7698</a><br>Mon–Fri 9:00am–5:00pm</span>
+      <b><a href="/horizon-city" style="color:#fff">Horizon City</a></b><span>13468 Eastlake Blvd<br>Horizon City, TX 79928<br><a href="tel:9153073382">(915) 307-3382</a><br>Mon–Fri 7:00am–4:30pm</span>
     </div>
   </div>
   <p class="fine">"As low as" and "starting at" pricing reflects our lowest available in-house financing terms. Your monthly payment depends on your treatment plan, and you'll get an exact quote at your free consultation. The free consultation includes an exam and X-ray with no obligation. Most insurance plans accepted; Texas Medicaid does not cover orthodontic treatment. Individual results vary and no specific outcome is guaranteed.</p>

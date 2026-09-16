@@ -33,7 +33,7 @@
  .btn.lineT{background:transparent;color:var(--deep);border-color:var(--deep)}.btn.lineT:hover{background:var(--mist)}
 
  /* ===== HERO (Variation C) ===== */
- .hero{position:relative;min-height:clamp(640px,86vh,940px);display:flex;flex-direction:column;overflow:hidden;background:var(--deep);padding:0}
+ .hero{position:relative;min-height:clamp(520px,68vh,720px);display:flex;flex-direction:column;overflow:hidden;background:var(--deep);padding:0}
  .hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
  .hero .scrim{position:absolute;inset:0;z-index:1;background:
    radial-gradient(ellipse 72% 56% at 50% 40%,rgba(6,16,15,.58),rgba(6,16,15,0) 70%),
@@ -156,12 +156,12 @@
 
  /* locations */
  .locs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
- .loc{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 26px rgba(4,106,99,.07)}
- .loc iframe{width:100%;height:200px;border:0;display:block}
- .loc .lb{padding:22px 24px 26px}
- .loc h3{font-size:23px;color:var(--deep);margin-bottom:8px;text-transform:uppercase}
- .loc .m{color:var(--slate);font-size:14px;line-height:1.7}
- .loc .p{font-weight:800;margin:8px 0 14px}
+ .locs .loc{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 26px rgba(4,106,99,.07)}
+ .locs .loc iframe{width:100%;height:200px;border:0;display:block}
+ .locs .loc .lb{padding:22px 24px 26px}
+ .locs .loc h3{font-size:23px;color:var(--deep);margin-bottom:8px;text-transform:uppercase}
+ .locs .loc .m{color:var(--slate);font-size:14px;line-height:1.7}
+ .locs .loc .p{font-weight:800;margin:8px 0 14px}
  @media(max-width:860px){.locs{grid-template-columns:1fr}}
 
  /* footer */
@@ -218,26 +218,7 @@
  .revby .who b{font-size:15px}
  .revby .src{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--slate)}
  .revby .gico{width:14px;height:14px;flex:0 0 14px}
-</style><style>.mm-btn{display:none;background:transparent;border:0;cursor:pointer;padding:8px;color:#fff}
-.mm-btn span{display:block;width:26px;height:3px;background:#fff;border-radius:3px;margin:5px 0;transition:.2s}
-.mm-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}.mm-btn.open span:nth-child(2){opacity:0}.mm-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-@media(max-width:1060px){.site-head nav{display:none}.site-head .bar .cta-sm{display:none}.site-head .head-phone{margin-left:auto;margin-right:4px}.mm-btn{display:block}.site-head .bar{height:70px}.site-head .logo img{height:54px}}
-
-/* mobile menu, nested accordion */
-.mobile-menu{display:none;position:fixed;inset:0;z-index:59;background:var(--ink);color:#fff;overflow:auto;padding:120px 22px 40px}
-.mobile-menu.open{display:block}
-.mobile-menu a,.mobile-menu .mm-cat{display:block;width:100%;text-align:left;background:transparent;border:0;color:#fff;font:600 18px/1.3 var(--sans);padding:14px 6px;border-bottom:1px solid #21403c;cursor:pointer;text-decoration:none}
-.mobile-menu .mm-cat::after{content:"▾";float:right;opacity:.7;transition:.2s}
-.mobile-menu .mm-cat.open{color:var(--aqua)}.mobile-menu .mm-cat.open::after{transform:rotate(180deg)}
-.mobile-menu .mm-sub{display:none;background:rgba(255,255,255,.06);border-left:3px solid var(--aqua);margin:0 0 6px;padding:2px 12px}
-.mobile-menu .mm-sub.open{display:block}
-.mobile-menu .mm-sub a{font-size:16px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08)}
-.mobile-menu .mm-sub .mm-cat{font-size:16px;font-weight:600}
-.mobile-menu .mm-sub .mm-sub{background:rgba(255,255,255,.12);border-left:3px solid var(--teal)}
-.mobile-menu .mm-sub .mm-sub a{font-size:15px}
-.mobile-menu .mm-cta{margin-top:24px;background:var(--teal);text-align:center;border-radius:999px;border:0;font-weight:700}
-.mobile-menu .mm-phones{margin-top:22px;font-size:14px;color:#9fc2bd;line-height:2}.mobile-menu .mm-phones a{display:inline;border:0;padding:0;font-size:15px}
-body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;position:fixed;top:44px;right:14px;z-index:61;background:rgba(16,33,31,.55);border-radius:10px}@media(max-width:1060px){.home-mm .mm-btn{display:block}}</style><style>.callbar{display:none}.skip{position:absolute;left:-9999px;top:0;background:#fff;padding:10px;z-index:100}.skip:focus{left:10px}/* sticky mobile call bar — most of this practice's traffic is a parent on a phone */
+</style><style>.callbar{display:none}.skip{position:absolute;left:-9999px;top:0;background:#fff;padding:10px;z-index:100}.skip:focus{left:10px}/* sticky mobile call bar — most of this practice's traffic is a parent on a phone */
 .callbar{display:none}
 @media(max-width:860px){
   .callbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:70;
@@ -254,37 +235,157 @@ body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;positi
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <script>document.documentElement.classList.add('js')</script>
-<div class="home-mm"><button class="mm-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button></div>
+
+<!-- Google "G" icon sprite (used by review badges) -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute" focusable="false"><symbol id="gicon" viewBox="0 0 48 48">
+  <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
+  <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
+  <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
+  <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
+</symbol></svg>
+
+<style>
+.topbar{background:var(--ink);color:#cfe3e0;font-size:13px;border-bottom:1px solid #21403c}
+.topbar .row{display:flex;justify-content:space-between;align-items:center;height:40px;gap:14px}
+.topbar a{color:#fff;font-weight:600}.topbar .r{display:flex;gap:20px;flex-wrap:wrap}
+.topbar em{font-style:normal;color:#8fb3ad;margin-right:5px}
+@media(max-width:760px){.topbar .l{display:none}.topbar .row{justify-content:center}.topbar .r{gap:14px}}
+@media(max-width:520px){.topbar em{display:none}.topbar .r{gap:10px;font-size:12.5px}}
+.site-head{position:sticky;top:0;z-index:60;background:var(--ink);border-bottom:1px solid #21403c;box-shadow:0 6px 24px rgba(0,0,0,.18)}
+.site-head .bar{position:relative;display:flex;align-items:center;justify-content:space-between;height:78px;gap:18px}
+.site-head .logo img{height:62px;width:auto}
+.site-head nav>ul{display:flex;gap:2px;list-style:none;align-items:center;margin:0;padding:0}
+.site-head nav>ul>li{position:relative}
+.site-head nav>ul>li.has-mega{position:static}
+.site-head nav>ul>li>a{display:block;color:#dff4f1;font-weight:600;font-size:14.5px;padding:11px 11px;border-radius:8px;white-space:nowrap}
+.site-head nav>ul>li>a:hover.site-head nav>ul>li:hover>a.site-head nav>ul>li:focus-within>a{color:#fff;background:rgba(255,255,255,.08)}
+.site-head nav li.has-dd>a::after,.site-head nav li.has-mega>a::after{content:"";display:inline-block;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-3px) rotate(45deg);margin-left:8px;opacity:.7}
+
+/* simple dropdown */
+.site-head .dd{position:absolute;top:100%;left:0;min-width:260px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 22px 50px rgba(4,106,99,.18);padding:10px;display:none;list-style:none;margin:8px 0 0;z-index:70}
+.site-head .dd::before,.mega::before{content:"";position:absolute;top:-10px;left:0;right:0;height:10px}
+.site-head nav li.has-dd:hover>.dd,.site-head nav li.has-dd:focus-within>.dd{display:block}
+.site-head .dd a{display:block;padding:10px 12px;border-radius:9px;color:var(--ink);font-weight:600;font-size:14.5px}
+.site-head .dd a:hover{background:var(--mist);color:var(--deep)}
+.site-head .dd a small{display:block;font-weight:500;font-size:12.5px;color:var(--slate);margin-top:1px}
+
+/* mega panel */
+.mega{position:absolute;top:100%;left:0;right:0;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 26px 60px rgba(4,106,99,.22);padding:28px 30px 24px;display:none;z-index:70;margin-top:8px}
+.site-head nav li.has-mega:hover>.mega,.site-head nav li.has-mega:focus-within>.mega{display:block}
+.mega .cols{display:grid;gap:22px 26px}
+.mega.c4 .cols{grid-template-columns:repeat(4,1fr)}
+.mega.c3 .cols{grid-template-columns:repeat(3,1fr)}
+.mega h4{font-family:var(--disp);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--deep);margin:0 0 8px;padding-left:10px}
+.mega ul{list-style:none;margin:0;padding:0;display:grid;gap:1px}
+.mega a{display:block;padding:7px 10px;border-radius:8px;color:var(--ink);font-weight:600;font-size:14.5px;line-height:1.35}
+.mega a:hover{background:var(--mist);color:var(--deep)}
+.mega a small{display:block;font-weight:500;font-size:12px;color:var(--slate);margin-top:1px}
+.mega .foot{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.mega .foot .hint{color:var(--slate);font-size:13.5px}
+.mega .foot .hint b{color:var(--ink)}
+
+.site-head .head-phone{display:flex;align-items:center;gap:7px;color:#fff;font-weight:800;font-size:17px;white-space:nowrap;letter-spacing:-.2px}
+.site-head .head-phone:hover{color:var(--aqua)}
+.site-head .head-phone svg{opacity:.8;flex:0 0 17px}
+@media(max-width:1220px){.site-head .head-phone span{display:none}.site-head .head-phone{width:44px;height:44px;justify-content:center;border-radius:50%;background:rgba(255,255,255,.1)}}
+.site-head .cta-stack{display:flex;flex-direction:column;align-items:stretch;gap:4px}
+.site-head .lang-link{color:#9fc2bd;font-size:12.5px;font-weight:600;text-align:center}
+.site-head .lang-link:hover{color:#fff;text-decoration:underline}
+.site-head .dd .dd-all{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+.site-head .dd .dd-all a{color:var(--deep);font-weight:700}
+.site-head .cta-sm{background:var(--teal-cta);color:#fff;padding:12px 22px;border-radius:999px;font-weight:700;font-size:14.5px;white-space:nowrap}
+.site-head .cta-sm:hover{background:var(--aqua);color:#fff}
+.mm-btn{display:none;background:transparent;border:0;cursor:pointer;padding:8px;color:#fff}
+.mm-btn span{display:block;width:26px;height:3px;background:#fff;border-radius:3px;margin:5px 0;transition:.2s}
+.mm-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}.mm-btn.open span:nth-child(2){opacity:0}.mm-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+@media(max-width:1060px){.site-head nav{display:none}.site-head .bar .cta-stack{display:none}.site-head .head-phone{margin-left:auto;margin-right:4px}.mm-btn{display:block}.site-head .bar{height:70px}.site-head .logo img{height:54px}}
+
+/* mobile menu, nested accordion */
+.mobile-menu{display:none;position:fixed;inset:0;z-index:59;background:var(--ink);color:#fff;overflow:auto;padding:120px 22px 40px}
+.mobile-menu.open{display:block}
+.mobile-menu a,.mobile-menu .mm-cat{display:block;width:100%;text-align:left;background:transparent;border:0;color:#fff;font:600 18px/1.3 var(--sans);padding:14px 6px;border-bottom:1px solid #21403c;cursor:pointer;text-decoration:none}
+.mobile-menu .mm-cat::after{content:"▾";float:right;opacity:.7;transition:.2s}
+.mobile-menu .mm-cat.open{color:var(--aqua)}.mobile-menu .mm-cat.open::after{transform:rotate(180deg)}
+.mobile-menu .mm-sub{display:none;background:rgba(255,255,255,.06);border-left:3px solid var(--aqua);margin:0 0 6px;padding:2px 12px}
+.mobile-menu .mm-sub.open{display:block}
+.mobile-menu .mm-sub a{font-size:16px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08)}
+.mobile-menu .mm-sub .mm-cat{font-size:16px;font-weight:600}
+.mobile-menu .mm-sub .mm-sub{background:rgba(255,255,255,.12);border-left:3px solid var(--teal)}
+.mobile-menu .mm-sub .mm-sub a{font-size:15px}
+.mobile-menu .mm-lang{text-align:center;color:#9fc2bd;font-weight:600;border:0;margin-top:4px}
+.mobile-menu .mm-cta{margin-top:24px;background:var(--teal);text-align:center;border-radius:999px;border:0;font-weight:700}
+.mobile-menu .mm-phones{margin-top:22px;font-size:14px;color:#9fc2bd;line-height:2}.mobile-menu .mm-phones a{display:inline;border:0;padding:0;font-size:15px}
+body.mm-lock{overflow:hidden}
+</style>
+<div class="topbar"><div class="wrap row">
+  <span class="l">📍 El Paso, TX · Se habla español · Free first visit</span>
+  <span class="r">
+    <span><em>East</em><a href="tel:9153043090">(915) 304-3090</a></span>
+    <span><em>West</em><a href="tel:9152197698">(915) 219-7698</a></span>
+    <span><em>Horizon</em><a href="tel:9153073382">(915) 307-3382</a></span>
+  </span>
+</div></div>
+<header class="site-head"><div class="wrap bar">
+  <a class="logo" href="/"><img src="/images/logo-old-white.png" alt="Smile 4 Less Orthodontics" width="258" height="200"></a>
+  <nav aria-label="Main">
+    <ul>
+      <li class="has-dd"><a href="/services">Services</a>
+        <ul class="dd">
+          <li><a href="/braces">Braces</a></li>
+          <li><a href="/clear-braces">Clear Braces</a></li>
+          <li><a href="/invisalign">Invisalign</a></li>
+          <li><a href="/kids-teens">Kids &amp; Teens</a></li>
+          <li><a href="/adult-orthodontics">Adults</a></li>
+          <li><a href="/retainers">Retainers</a></li>
+          <li class="dd-all"><a href="/services">View all treatments →</a></li>
+        </ul>
+      </li>
+      <li class="has-dd"><a href="/about">Why Choose Us</a>
+        <ul class="dd">
+          <li><a href="/about">The Smile 4 Less Difference</a></li>
+          <li><a href="/affordable-braces-el-paso">Affordable Braces</a></li>
+          <li><a href="/meet-the-doctors">Meet the Doctors</a></li>
+          <li><a href="/meet-the-team">Meet the Team</a></li>
+          <li><a href="/reviews">Patient Reviews</a></li>
+        </ul>
+      </li>
+      <li class="has-dd"><a href="/new-patients">Resources</a>
+        <ul class="dd">
+          <li><a href="/new-patients">New Patient Forms</a></li>
+          <li><a href="/make-a-payment">Make a Payment</a></li>
+          <li><a href="/financing">Financing &amp; Insurance</a></li>
+          <li><a href="/refer-a-patient">Refer a Patient</a></li>
+          <li><a href="/living-with-braces">Living With Braces</a></li>
+        </ul>
+      </li>
+      <li class="has-dd"><a href="/locations">Locations</a>
+        <ul class="dd">
+          <li><a href="/east-el-paso">East El Paso<small>Open until 9:30pm</small></a></li>
+          <li><a href="/west-el-paso">West El Paso</a></li>
+          <li><a href="/horizon-city">Horizon City</a></li>
+          <li><a href="/areas-we-serve">Areas We Serve</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <a class="head-phone" href="tel:9153043090" aria-label="Call Smile 4 Less at (915) 304-3090"><svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.4.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.4 0 .7-.2 1l-2.3 2.2z"/></svg><span>(915) 304-3090</span></a>
+  <div class="cta-stack">
+    <a class="cta-sm" href="/free-consultation">Free Consultation</a>
+    <a class="lang-link" href="/brackets-el-paso" lang="es">Ver en español</a>
+  </div>
+  <button class="mm-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+</div></header>
 <div class="mobile-menu" id="mobile-menu">
   <button class="mm-cat">Services</button>
-  <div class="mm-sub">
-    <a href="/services"><strong>All Treatments</strong></a>
-    <button class="mm-cat">Braces</button>
-    <div class="mm-sub"><a href="/braces">Braces</a><a href="/clear-braces">Clear Braces</a><a href="/colored-braces">Colored Braces</a><a href="/types-of-braces">Types of Braces</a></div>
-    <button class="mm-cat">Invisalign</button>
-    <div class="mm-sub"><a href="/invisalign">Invisalign</a><a href="/invisalign-cost-el-paso">Invisalign Cost</a><a href="/braces-vs-invisalign">Braces vs. Invisalign</a></div>
-    <button class="mm-cat">By Age</button>
-    <div class="mm-sub"><a href="/kids-teens">Kids &amp; Teens</a><a href="/adult-orthodontics">Adults</a></div>
-    <button class="mm-cat">Retainers &amp; Care</button>
-    <div class="mm-sub"><a href="/retainers">Retainers</a><a href="/retainer-replacement-el-paso">Retainer Replacement</a><a href="/permanent-retainer">Permanent Retainers</a><a href="/emergency-care">Emergency Care</a><a href="/living-with-braces">Living With Braces</a></div>
-    <button class="mm-cat">Conditions</button>
-    <div class="mm-sub"><a href="/crowded-teeth">Crowded Teeth</a><a href="/overbite-treatment">Overbite</a><a href="/underbite-treatment">Underbite</a><a href="/gap-teeth">Gap Teeth</a><a href="/airway-orthodontics">Airway-Friendly Ortho</a></div>
-  </div>
+  <div class="mm-sub"><a href="/braces">Braces</a><a href="/clear-braces">Clear Braces</a><a href="/invisalign">Invisalign</a><a href="/kids-teens">Kids &amp; Teens</a><a href="/adult-orthodontics">Adults</a><a href="/retainers">Retainers</a><a href="/services">View all treatments →</a></div>
   <button class="mm-cat">Why Choose Us</button>
-  <div class="mm-sub">
-    <button class="mm-cat">The Practice</button>
-    <div class="mm-sub"><a href="/about">The Smile 4 Less Difference</a><a href="/meet-the-doctors">Meet the Doctors</a><a href="/meet-the-team">Meet the Team</a><a href="/new-patients">New Patients</a></div>
-    <button class="mm-cat">Cost &amp; Financing</button>
-    <div class="mm-sub"><a href="/financing">Financing &amp; Payment Plans</a><a href="/affordable-braces-el-paso">Affordable Braces ($99)</a><a href="/braces-cost-el-paso">How Much Do Braces Cost?</a><a href="/does-insurance-cover-braces">Does Insurance Cover Braces?</a><a href="/medicaid-braces-texas">Medicaid &amp; Braces in Texas</a><a href="/military-families">Military Families</a></div>
-    <button class="mm-cat">Proof</button>
-    <div class="mm-sub"><a href="/reviews">Patient Reviews</a><a href="/smile-gallery">Smile Gallery</a></div>
-    <a href="/contact">Contact Us</a>
-  </div>
+  <div class="mm-sub"><a href="/about">The Smile 4 Less Difference</a><a href="/affordable-braces-el-paso">Affordable Braces</a><a href="/meet-the-doctors">Meet the Doctors</a><a href="/meet-the-team">Meet the Team</a><a href="/reviews">Patient Reviews</a></div>
   <button class="mm-cat">Resources</button>
-  <div class="mm-sub"><a href="/new-patients">New Patient Forms</a><a href="/make-a-payment">Make a Payment</a><a href="/refer-a-patient">Refer a Patient</a><a href="/living-with-braces">Living With Braces</a><a href="/emergency-care">Orthodontic Emergency</a><a href="/brackets-el-paso">En español</a></div>
+  <div class="mm-sub"><a href="/new-patients">New Patient Forms</a><a href="/make-a-payment">Make a Payment</a><a href="/financing">Financing &amp; Insurance</a><a href="/refer-a-patient">Refer a Patient</a><a href="/living-with-braces">Living With Braces</a></div>
   <button class="mm-cat">Locations</button>
-  <div class="mm-sub"><a href="/east-el-paso">East El Paso</a><a href="/west-el-paso">West El Paso</a><a href="/horizon-city">Horizon City</a><a href="/locations">All Locations &amp; Hours</a><a href="/areas-we-serve">Areas We Serve</a></div>
+  <div class="mm-sub"><a href="/east-el-paso">East El Paso</a><a href="/west-el-paso">West El Paso</a><a href="/horizon-city">Horizon City</a><a href="/areas-we-serve">Areas We Serve</a></div>
   <a class="mm-cta" href="/free-consultation">Schedule a Free Consultation</a>
+  <a class="mm-lang" href="/brackets-el-paso" lang="es">Ver en español</a>
   <div class="mm-phones">East <a href="tel:9153043090">(915) 304-3090</a><br>West <a href="tel:9152197698">(915) 219-7698</a><br>Horizon <a href="tel:9153073382">(915) 307-3382</a></div>
 </div>
 <script>
@@ -295,54 +396,18 @@ body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;positi
 })();
 </script>
 
-<!-- Google "G" icon sprite (used by review badges) -->
-<svg width="0" height="0" aria-hidden="true" style="position:absolute" focusable="false"><symbol id="gicon" viewBox="0 0 48 48">
-  <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>
-  <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>
-  <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>
-  <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>
-</symbol></svg>
-
-<!-- STICKY CONDENSED NAV -->
-<div class="stuck" id="stuck"><div class="wrap bar">
-  <a class="logo" href="/"><img src="/images/logo-old-white.png" alt="Smile 4 Less Orthodontics" width="258" height="200"></a>
-  <nav><ul>
-    <li><a href="/services">Services</a></li>
-    <li><a href="/about">Why Choose Us</a></li>
-    <li><a href="/locations">Locations</a></li>
-  </ul></nav>
-  <a class="cta-sm" href="/free-consultation">Free Consultation</a>
-</div></div>
-
 <main id="main">
 <!-- ===== HERO ===== -->
 <section class="hero">
   <video id="herovid" muted loop playsinline preload="none" poster="/images/hero-poster.jpg" aria-hidden="true"></video>
   <div class="scrim"></div>
 
-  <div class="topbar"><div class="wrap row">
-    <span class="l">📍 El Paso, TX &amp; Las Cruces, NM · Se habla español</span>
-    <span class="r">
-      <span><em>East</em><a href="tel:9153043090">(915) 304-3090</a></span>
-      <span><em>West</em><a href="tel:9152197698">(915) 219-7698</a></span>
-      <span><em>Horizon</em><a href="tel:9153073382">(915) 307-3382</a></span>
-    </span>
-  </div></div>
 
-  <header class="head"><div class="wrap bar">
-    <a class="logo" href="/"><img src="/images/logo-old-white.png" alt="Smile 4 Less Orthodontics" width="258" height="200"></a>
-    <nav><ul>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/about">Why Choose Us</a></li>
-      <li><a href="/locations">Locations</a></li>
-      <li><a class="cta-sm" href="/free-consultation">Free Consultation</a></li>
-    </ul></nav>
-  </div></header>
 
   <div class="hbody"><div class="inner">
     <span class="eyebrow">Affordable Orthodontics</span>
     <h1>Big smiles.<br><span class="u">Small payments.</span></h1>
-    <p class="sub">Braces &amp; Invisalign in El Paso &amp; Las Cruces, starting as low as $99/month. Free first visit · extended hours · se habla español.</p>
+    <p class="sub">Braces &amp; Invisalign in El Paso, starting as low as $99/month. Free first visit · extended hours · se habla español.</p>
     <div class="btns">
       <a class="btn white" href="/free-consultation">Schedule a Free Consultation</a>
     </div>
@@ -372,7 +437,7 @@ body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;positi
 <section style="background:var(--mist)"><div class="wrap center">
   <span class="eyebrow">Why families choose us</span>
   <h2 style="font-size:44px;text-transform:uppercase">Affordable, convenient, and trusted</h2>
-  <p class="lead">Everything that makes Smile 4 Less the easy choice across El Paso &amp; Las Cruces.</p>
+  <p class="lead">Everything that makes Smile 4 Less the easy choice across El Paso.</p>
   <div class="why3" style="text-align:left">
     <div class="why"><img src="/images/why-less-driving.jpg" alt="Orthodontist reviewing X-rays with a teen patient and her mom" width="800" height="600"><div class="wb"><h3>Less driving, same great care</h3><p>Skip the border crossing and all-day trips. Expert care minutes from home, starting as low as $99/month.</p></div></div>
     <div class="why"><img src="/images/why-hours.jpg" alt="A family smiling together in the Smile 4 Less office" width="800" height="640"><div class="wb"><h3>No missing school or work</h3><p>Early and late hours at every location, so treatment fits around class, practice, and your shift.</p></div></div>
@@ -434,7 +499,6 @@ body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;positi
   <div class="lbl">Trusted Certifications &amp; Memberships</div>
   <div class="logos">
     <img src="/images/logos/aao.png" alt="American Association of Orthodontists" style="height:48px" width="300" height="105">
-    <img src="/images/logos/abo.png" alt="American Board of Orthodontics. Board Certified" style="height:74px" width="235" height="200">
     <img src="/images/logos/invisalign.png" alt="Invisalign Provider" style="height:36px" width="300" height="73">
     <img src="/images/logos/ada.png" alt="American Dental Association" style="height:44px" width="300" height="99">
     <img src="/images/logos/tda.png" alt="Texas Dental Association" style="height:66px" width="300" height="140">
@@ -446,7 +510,7 @@ body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;positi
 <section class="revsec" style="background:var(--mist)">
   <span class="deco a"></span><span class="deco b"></span>
   <div class="wrap">
-  <div class="center"><span class="eyebrow">Patient stories</span><h2 style="font-size:46px;text-transform:uppercase">El Paso &amp; Las Cruces families love us</h2>
+  <div class="center"><span class="eyebrow">Patient stories</span><h2 style="font-size:46px;text-transform:uppercase">El Paso families love us</h2>
   <p class="lead">Real five-star reviews from our patients on Google.</p>
   <div class="gbadge"><svg class="gico"><use href="#gicon"></use></svg><span class="stars">★★★★★</span><span class="gtxt">Hundreds of 5-star reviews on Google</span></div></div>
   <div class="revs">
@@ -481,7 +545,7 @@ body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;positi
 <!-- FINAL CTA BAND -->
 <section class="band"><div class="wrap">
   <h2>Start your smile journey today</h2>
-  <p>Join thousands of happy patients across El Paso &amp; Las Cruces. Free first visit, flexible plans, and a team that makes it easy.</p>
+  <p>Join thousands of happy patients across El Paso. Free first visit, flexible plans, and a team that makes it easy.</p>
   <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
     <a class="btn white" href="/free-consultation">Schedule a Free Consultation</a>
   </div>
@@ -489,7 +553,7 @@ body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;positi
 
 <!-- LOCATIONS -->
 <section style="background:var(--stone)"><div class="wrap">
-  <div class="center"><span class="eyebrow">Locations across El Paso &amp; Las Cruces</span><h2 style="font-size:46px;text-transform:uppercase">Find your closest office</h2></div>
+  <div class="center"><span class="eyebrow">Three locations across El Paso</span><h2 style="font-size:46px;text-transform:uppercase">Find your closest office</h2></div>
   <div class="locs">
     <div class="loc"><iframe loading="lazy" title="Map to Smile 4 Less East El Paso" src="https://maps.google.com/maps?q=12244+Montana+Ave+El+Paso+TX+79938&output=embed"></iframe><div class="lb"><h3>East El Paso</h3><div class="m">12244 Montana, Bldg A Ste 400<br>El Paso, TX 79938<br>Mon–Fri 7:00am–9:30pm</div><div class="p">(915) 304-3090</div><a class="btn lineT" href="https://www.google.com/maps/dir/?api=1&destination=12244+Montana+Ave+Bldg+A+Ste+400+El+Paso+TX+79938" target="_blank" rel="noopener" style="padding:11px 20px;font-size:14px">Get Directions</a></div></div>
     <div class="loc"><iframe loading="lazy" title="Map to Smile 4 Less West El Paso" src="https://maps.google.com/maps?q=7480+Remcon+Circle+El+Paso+TX+79912&output=embed"></iframe><div class="lb"><h3>West El Paso</h3><div class="m">7480 Remcon Circle<br>El Paso, TX 79912<br>Mon–Fri 9:00am–5:00pm</div><div class="p">(915) 219-7698</div><a class="btn lineT" href="https://www.google.com/maps/dir/?api=1&destination=7480+Remcon+Circle+El+Paso+TX+79912" target="_blank" rel="noopener" style="padding:11px 20px;font-size:14px">Get Directions</a></div></div>
@@ -501,13 +565,14 @@ body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;positi
 <!-- FOOTER:START -->
 <style>
 .site-foot{background:var(--ink);color:#cfe3e0;padding:64px 0 28px;font-family:var(--sans)}
+.site-foot .floc{background:transparent}
 .site-foot .fcols{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr 1.15fr;gap:26px;font-size:14px}
 .site-foot .flogo img{height:96px;width:auto;margin-bottom:14px}
 .site-foot h3{color:#fff;font-family:var(--disp);font-size:16px;margin:0 0 12px;text-transform:uppercase;letter-spacing:.04em}
 .site-foot a,.site-foot .mut{color:#9fc2bd;display:block;margin-bottom:6px;text-decoration:none}.site-foot a:hover{color:#fff}
-.site-foot .loc b{color:#fff;display:block;margin-top:12px}.site-foot .loc h4+b{margin-top:0}
-.site-foot .loc span{display:block;color:#9fc2bd;font-size:13px;line-height:1.55}
-.site-foot .loc a,.site-foot .fbar a{display:inline;margin:0}
+.site-foot .floc b{color:#fff;display:block;margin-top:12px}.site-foot .floc h3+b{margin-top:0}
+.site-foot .floc span{display:block;color:#9fc2bd;font-size:13px;line-height:1.55}
+.site-foot .floc a,.site-foot .fbar a{display:inline;margin:0}
 .site-foot .fbar{border-top:1px solid #21403c;margin-top:36px;padding-top:18px;font-size:12px;color:#7fa39d;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px 18px}
 .site-foot .fbar a{margin-right:12px}
 .site-foot .fine{font-size:12px;color:#7fa39d;margin-top:22px;line-height:1.6;max-width:920px}
@@ -516,25 +581,25 @@ body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;positi
 @media(max-width:520px){.site-foot .fcols{grid-template-columns:1fr}}
 @media(max-width:860px){
   .site-foot a{display:flex;align-items:center;min-height:44px;padding:2px 0;margin-bottom:0}
-  .site-foot .loc a{display:inline-block;min-height:0;padding:4px 0}
+  .site-foot .floc a{display:inline-block;min-height:0;padding:4px 0}
   .site-foot .fbar a{display:inline-block;min-height:44px;line-height:44px}
 }
 @media(max-width:760px){
-  .site-foot .fcols>div:not(:first-child):not(.loc){display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
-  .site-foot .fcols>div:not(:first-child):not(.loc) h3{grid-column:1/-1}
+  .site-foot .fcols>div:not(:first-child):not(.floc){display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+  .site-foot .fcols>div:not(:first-child):not(.floc) h3{grid-column:1/-1}
 }
-@media(max-width:400px){.site-foot .fcols>div:not(:first-child):not(.loc){grid-template-columns:1fr}}
+@media(max-width:400px){.site-foot .fcols>div:not(:first-child):not(.floc){grid-template-columns:1fr}}
 </style>
 <footer class="site-foot"><div class="wrap">
   <div class="fcols">
     <div><a class="flogo" href="/"><img src="/images/logo-old-white.png" alt="Smile 4 Less Orthodontics" width="258" height="200"></a><div class="mut">Affordable braces &amp; Invisalign for El Paso families. Kids, teens, and adults. Free first visit, $99 down, and payments as low as $99/month.</div><a href="/free-consultation" style="color:var(--aqua);font-weight:700;margin-top:10px">Schedule a Free Consultation →</a></div>
-    <div><h3>Services</h3><a href="/braces">Braces</a><a href="/clear-braces">Clear Braces</a><a href="/colored-braces">Colored Braces</a><a href="/types-of-braces">Types of Braces</a><a href="/invisalign">Invisalign</a><a href="/kids-teens">Kids &amp; Teens</a><a href="/adult-orthodontics">Adults</a><a href="/retainers">Retainers</a><a href="/retainer-replacement-el-paso">Retainer Replacement</a><a href="/permanent-retainer">Permanent Retainers</a><a href="/emergency-care">Emergency Care</a><a href="/airway-orthodontics">Airway-Friendly Ortho</a><a href="/services">All Treatments</a></div>
-    <div><h3>Why Choose Us</h3><a href="/about">The Smile 4 Less Difference</a><a href="/meet-the-doctors">Meet the Doctors</a><a href="/meet-the-team">Meet the Team</a><a href="/reviews">Patient Reviews</a><a href="/smile-gallery">Smile Gallery</a><a href="/financing">Financing &amp; Payment Plans</a><a href="/affordable-braces-el-paso">Affordable ($99) Braces</a><a href="/braces-cost-el-paso">Braces Cost in El Paso</a><a href="/does-insurance-cover-braces">Insurance &amp; Braces</a><a href="/military-families">Military Families</a><a href="/contact">Contact Us</a></div>
-    <div><h3>Resources</h3><a href="/new-patients">New Patient Forms</a><a href="/make-a-payment">Make a Payment</a><a href="/refer-a-patient">Refer a Patient</a><a href="/living-with-braces">Living With Braces</a><a href="/medicaid-braces-texas">Medicaid &amp; Braces</a><a href="/invisalign-cost-el-paso">Invisalign Cost</a><a href="/areas-we-serve">Areas We Serve</a><a href="/brackets-el-paso">En español</a></div>
-    <div class="loc"><h3>Locations</h3>
-      <b><a href="/east-el-paso" style="color:#fff">East El Paso</a></b><span>12244 Montana Ave, Bldg A Ste 400<br>El Paso, TX 79938 · <a href="tel:9153043090">(915) 304-3090</a><br>Mon–Fri 7:00am–9:30pm</span>
-      <b><a href="/west-el-paso" style="color:#fff">West El Paso</a></b><span>7480 Remcon Circle<br>El Paso, TX 79912 · <a href="tel:9152197698">(915) 219-7698</a><br>Mon–Fri 9:00am–5:00pm</span>
-      <b><a href="/horizon-city" style="color:#fff">Horizon City</a></b><span>13468 Eastlake Blvd<br>Horizon City, TX 79928 · <a href="tel:9153073382">(915) 307-3382</a><br>Mon–Fri 7:00am–4:30pm</span>
+    <div><h3>Services</h3><a href="/braces">Braces</a><a href="/clear-braces">Clear Braces</a><a href="/invisalign">Invisalign</a><a href="/kids-teens">Kids &amp; Teens</a><a href="/adult-orthodontics">Adults</a><a href="/retainers">Retainers</a><a href="/services">All Treatments</a></div>
+    <div><h3>Why Choose Us</h3><a href="/about">The Smile 4 Less Difference</a><a href="/affordable-braces-el-paso">Affordable Braces</a><a href="/meet-the-doctors">Meet the Doctors</a><a href="/meet-the-team">Meet the Team</a><a href="/reviews">Patient Reviews</a><a href="/smile-gallery">Smile Gallery</a></div>
+    <div><h3>Resources</h3><a href="/new-patients">New Patient Forms</a><a href="/make-a-payment">Make a Payment</a><a href="/financing">Financing &amp; Insurance</a><a href="/braces-cost-el-paso">Braces Cost</a><a href="/refer-a-patient">Refer a Patient</a><a href="/living-with-braces">Living With Braces</a><a href="/contact">Contact Us</a><a href="/brackets-el-paso" lang="es">Ver en español</a></div>
+    <div class="floc"><h3>Locations</h3>
+      <b><a href="/east-el-paso" style="color:#fff">East El Paso</a></b><span>12244 Montana Ave, Bldg A Ste 400<br>El Paso, TX 79938<br><a href="tel:9153043090">(915) 304-3090</a><br>Mon–Fri 7:00am–9:30pm</span>
+      <b><a href="/west-el-paso" style="color:#fff">West El Paso</a></b><span>7480 Remcon Circle<br>El Paso, TX 79912<br><a href="tel:9152197698">(915) 219-7698</a><br>Mon–Fri 9:00am–5:00pm</span>
+      <b><a href="/horizon-city" style="color:#fff">Horizon City</a></b><span>13468 Eastlake Blvd<br>Horizon City, TX 79928<br><a href="tel:9153073382">(915) 307-3382</a><br>Mon–Fri 7:00am–4:30pm</span>
     </div>
   </div>
   <p class="fine">"As low as" and "starting at" pricing reflects our lowest available in-house financing terms. Your monthly payment depends on your treatment plan, and you'll get an exact quote at your free consultation. The free consultation includes an exam and X-ray with no obligation. Most insurance plans accepted; Texas Medicaid does not cover orthodontic treatment. Individual results vary and no specific outcome is guaranteed.</p>
