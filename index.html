@@ -49,11 +49,11 @@
  /* overlay header */
  .head .bar{display:flex;align-items:center;justify-content:space-between;height:80px;gap:20px}
  .head .logo img{height:66px}
- .head nav ul{display:flex;gap:26px;list-style:none;align-items:center}
+ .head nav ul{display:flex;gap:30px;list-style:none;align-items:center}
  .head nav a{color:#fff;font-weight:600;font-size:14.5px}.head nav a:hover{color:var(--aqua)}
  .head .cta-sm{background:var(--teal);color:#fff;padding:11px 22px;border-radius:999px;font-weight:700;font-size:14.5px}
  .head .cta-sm:hover{background:var(--deep);color:#fff}
- @media(max-width:980px){.head nav ul{display:none}.head nav .cta-sm{display:inline-block}}
+ @media(max-width:1000px){.head nav ul{display:none}.head nav .cta-sm{display:none}}
  /* hero body */
  .hbody{flex:1;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:24px}
  .hbody .inner{max-width:900px;margin:0 auto;color:#fff}
@@ -76,11 +76,11 @@
  .stuck.show{transform:translateY(0)}
  .stuck .bar{display:flex;align-items:center;justify-content:space-between;height:68px;gap:20px}
  .stuck .logo img{height:54px}
- .stuck nav ul{display:flex;gap:24px;list-style:none;align-items:center}
+ .stuck nav ul{display:flex;gap:30px;list-style:none;align-items:center}
  .stuck nav a{color:#dff4f1;font-weight:600;font-size:14.5px}.stuck nav a:hover{color:var(--aqua)}
  .stuck .cta-sm{background:var(--teal);color:#fff;padding:10px 20px;border-radius:999px;font-weight:700;font-size:14px}
  .stuck .cta-sm:hover{background:var(--deep);color:#fff}
- @media(max-width:980px){.stuck nav ul{display:none}}
+ @media(max-width:1000px){.stuck nav ul{display:none}}
 
  /* split (image + text) */
  .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -221,7 +221,9 @@
 </style><style>.mm-btn{display:none;background:transparent;border:0;cursor:pointer;padding:8px;color:#fff}
 .mm-btn span{display:block;width:26px;height:3px;background:#fff;border-radius:3px;margin:5px 0;transition:.2s}
 .mm-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}.mm-btn.open span:nth-child(2){opacity:0}.mm-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-@media(max-width:1060px){.site-head nav{display:none}.site-head .bar .cta-sm{display:none}.mm-btn{display:block}.site-head .bar{height:70px}.site-head .logo img{height:54px}}
+@media(max-width:1000px){.site-head nav{display:none}.site-head .bar .cta-sm{display:none}.mm-btn{display:block}.site-head .bar{height:70px}.site-head .logo img{height:54px}}
+
+/* mobile menu — nested accordion */
 .mobile-menu{display:none;position:fixed;inset:0;z-index:59;background:var(--ink);color:#fff;overflow:auto;padding:120px 22px 40px}
 .mobile-menu.open{display:block}
 .mobile-menu a,.mobile-menu .mm-cat{display:block;width:100%;text-align:left;background:transparent;border:0;color:#fff;font:600 18px/1.3 var(--sans);padding:14px 6px;border-bottom:1px solid #21403c;cursor:pointer;text-decoration:none}
@@ -230,26 +232,42 @@
 .mobile-menu .mm-sub{display:none;background:rgba(255,255,255,.06);border-left:3px solid var(--aqua);margin:0 0 6px;padding:2px 12px}
 .mobile-menu .mm-sub.open{display:block}
 .mobile-menu .mm-sub a{font-size:16px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.08)}
+.mobile-menu .mm-sub .mm-cat{font-size:16px;font-weight:600}
+.mobile-menu .mm-sub .mm-sub{background:rgba(255,255,255,.12);border-left:3px solid var(--teal)}
+.mobile-menu .mm-sub .mm-sub a{font-size:15px}
 .mobile-menu .mm-cta{margin-top:24px;background:var(--teal);text-align:center;border-radius:999px;border:0;font-weight:700}
 .mobile-menu .mm-phones{margin-top:22px;font-size:14px;color:#9fc2bd;line-height:2}.mobile-menu .mm-phones a{display:inline;border:0;padding:0;font-size:15px}
-body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;position:fixed;top:44px;right:14px;z-index:61;background:rgba(16,33,31,.55);border-radius:10px}@media(max-width:980px){.home-mm .mm-btn{display:block}}</style></head>
+body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;position:fixed;top:44px;right:14px;z-index:61;background:rgba(16,33,31,.55);border-radius:10px}@media(max-width:1000px){.home-mm .mm-btn{display:block}}</style></head>
 <body>
 <script>document.documentElement.classList.add('js')</script>
 <div class="home-mm"><button class="mm-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button></div>
 <div class="mobile-menu" id="mobile-menu">
-  <button class="mm-cat">Braces</button>
-  <div class="mm-sub"><a href="/braces">Braces</a><a href="/clear-braces">Clear Braces</a><a href="/colored-braces">Colored Braces</a><a href="/types-of-braces">Types of Braces</a><a href="/retainers">Retainers</a><a href="/retainer-replacement-el-paso">Retainer Replacement</a><a href="/permanent-retainer">Permanent Retainers</a><a href="/emergency-care">Emergency Care</a><a href="/overbite-treatment">Overbite</a><a href="/underbite-treatment">Underbite</a><a href="/crowded-teeth">Crowded Teeth</a><a href="/gap-teeth">Gap Teeth</a></div>
-  <button class="mm-cat">Invisalign</button>
-  <div class="mm-sub"><a href="/invisalign">Invisalign</a><a href="/invisalign-cost-el-paso">Invisalign Cost in El Paso</a><a href="/braces-vs-invisalign">Braces vs. Invisalign</a></div>
-  <button class="mm-cat">Kids &amp; Teens</button>
-  <div class="mm-sub"><a href="/kids-teens">Kids &amp; Teens</a><a href="/kids-teens#early">Early Treatment (Ages 7–10)</a><a href="/kids-teens#teens">Teens</a><a href="/airway-orthodontics">Airway-Friendly Orthodontics</a></div>
-  <a href="/adult-orthodontics">Adults</a>
-  <button class="mm-cat">Financing</button>
-  <div class="mm-sub"><a href="/financing">Financing &amp; Payment Plans</a><a href="/affordable-braces-el-paso">Affordable Braces ($99)</a><a href="/braces-cost-el-paso">How Much Do Braces Cost?</a><a href="/does-insurance-cover-braces">Does Insurance Cover Braces?</a><a href="/medicaid-braces-texas">Medicaid &amp; Braces in Texas</a><a href="/military-families">Military Families</a></div>
+  <button class="mm-cat">Services</button>
+  <div class="mm-sub">
+    <a href="/services"><strong>All Treatments</strong></a>
+    <button class="mm-cat">Braces</button>
+    <div class="mm-sub"><a href="/braces">Braces</a><a href="/clear-braces">Clear Braces</a><a href="/colored-braces">Colored Braces</a><a href="/types-of-braces">Types of Braces</a></div>
+    <button class="mm-cat">Invisalign</button>
+    <div class="mm-sub"><a href="/invisalign">Invisalign</a><a href="/invisalign-cost-el-paso">Invisalign Cost</a><a href="/braces-vs-invisalign">Braces vs. Invisalign</a></div>
+    <button class="mm-cat">By Age</button>
+    <div class="mm-sub"><a href="/kids-teens">Kids &amp; Teens</a><a href="/adult-orthodontics">Adults</a></div>
+    <button class="mm-cat">Retainers &amp; Care</button>
+    <div class="mm-sub"><a href="/retainers">Retainers</a><a href="/retainer-replacement-el-paso">Retainer Replacement</a><a href="/permanent-retainer">Permanent Retainers</a><a href="/emergency-care">Emergency Care</a><a href="/living-with-braces">Living With Braces</a></div>
+    <button class="mm-cat">Conditions</button>
+    <div class="mm-sub"><a href="/crowded-teeth">Crowded Teeth</a><a href="/overbite-treatment">Overbite</a><a href="/underbite-treatment">Underbite</a><a href="/gap-teeth">Gap Teeth</a><a href="/airway-orthodontics">Airway-Friendly Ortho</a></div>
+  </div>
+  <button class="mm-cat">Why Choose Us</button>
+  <div class="mm-sub">
+    <button class="mm-cat">The Practice</button>
+    <div class="mm-sub"><a href="/about">The Smile 4 Less Difference</a><a href="/meet-the-doctors">Meet the Doctors</a><a href="/meet-the-team">Meet the Team</a><a href="/new-patients">New Patients</a></div>
+    <button class="mm-cat">Cost &amp; Financing</button>
+    <div class="mm-sub"><a href="/financing">Financing &amp; Payment Plans</a><a href="/affordable-braces-el-paso">Affordable Braces ($99)</a><a href="/braces-cost-el-paso">How Much Do Braces Cost?</a><a href="/does-insurance-cover-braces">Does Insurance Cover Braces?</a><a href="/medicaid-braces-texas">Medicaid &amp; Braces in Texas</a><a href="/military-families">Military Families</a></div>
+    <button class="mm-cat">Proof</button>
+    <div class="mm-sub"><a href="/reviews">Patient Reviews</a><a href="/smile-gallery">Smile Gallery</a></div>
+    <a href="/contact">Contact Us</a>
+  </div>
   <button class="mm-cat">Locations</button>
-  <div class="mm-sub"><a href="/east-el-paso">East El Paso</a><a href="/west-el-paso">West El Paso</a><a href="/horizon-city">Horizon City</a><a href="/areas-we-serve">Areas We Serve</a><a href="/brackets-el-paso">En español</a></div>
-  <button class="mm-cat">About</button>
-  <div class="mm-sub"><a href="/meet-the-doctors">Meet the Doctors</a><a href="/meet-the-team">Meet the Team</a><a href="/reviews">Patient Reviews</a><a href="/smile-gallery">Smile Gallery</a><a href="/new-patients">New Patients</a><a href="/living-with-braces">Living With Braces</a><a href="/contact">Contact</a></div>
+  <div class="mm-sub"><a href="/east-el-paso">East El Paso</a><a href="/west-el-paso">West El Paso</a><a href="/horizon-city">Horizon City</a><a href="/locations">All Locations &amp; Hours</a><a href="/areas-we-serve">Areas We Serve</a><a href="/brackets-el-paso">En español</a></div>
   <a class="mm-cta" href="/free-consultation">Schedule a Free Consultation</a>
   <div class="mm-phones">East <a href="tel:9153043090">(915) 304-3090</a><br>West <a href="tel:9152197698">(915) 219-7698</a><br>Horizon <a href="tel:9153073382">(915) 307-3382</a></div>
 </div>
@@ -273,9 +291,9 @@ body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;positi
 <div class="stuck" id="stuck"><div class="wrap bar">
   <a class="logo" href="/"><img src="/images/logo-old-white.png" alt="Smile 4 Less Orthodontics"></a>
   <nav><ul>
-    <li><a href="/braces">Braces</a></li><li><a href="/invisalign">Invisalign</a></li>
-    <li><a href="/kids-teens">Kids &amp; Teens</a></li><li><a href="/adult-orthodontics">Adults</a></li>
-    <li><a href="/financing">Financing</a></li><li><a href="/locations">Locations</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/about">Why Choose Us</a></li>
+    <li><a href="/locations">Locations</a></li>
   </ul></nav>
   <a class="cta-sm" href="/free-consultation">Free Consultation</a>
 </div></div>
@@ -297,9 +315,9 @@ body.mm-lock{overflow:hidden}</style><style>.home-mm .mm-btn{display:none;positi
   <header class="head"><div class="wrap bar">
     <a class="logo" href="/"><img src="/images/logo-old-white.png" alt="Smile 4 Less Orthodontics"></a>
     <nav><ul>
-      <li><a href="/braces">Braces</a></li><li><a href="/invisalign">Invisalign</a></li>
-      <li><a href="/kids-teens">Kids &amp; Teens</a></li><li><a href="/adult-orthodontics">Adults</a></li>
-      <li><a href="/financing">Financing</a></li><li><a href="/locations">Locations</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/about">Why Choose Us</a></li>
+      <li><a href="/locations">Locations</a></li>
       <li><a class="cta-sm" href="/free-consultation">Free Consultation</a></li>
     </ul></nav>
   </div></header>
