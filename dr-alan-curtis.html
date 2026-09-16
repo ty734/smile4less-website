@@ -25,13 +25,13 @@
 <!-- HEADER:START -->
 <style>
 .topbar{background:var(--ink);color:#cfe3e0;font-size:13px;border-bottom:1px solid #21403c}
-.topbar .row{display:flex;justify-content:space-between;align-items:center;height:40px;gap:14px}
+.topbar .row{display:flex;justify-content:space-between;align-items:center;min-height:42px;padding:6px 0;gap:14px}
 .topbar a{color:#fff;font-weight:600}.topbar .r{display:flex;gap:20px;flex-wrap:wrap}
 .topbar em{font-style:normal;color:#8fb3ad;margin-right:5px}
 @media(max-width:760px){.topbar .l{display:none}.topbar .row{justify-content:center}.topbar .r{gap:14px}}
 @media(max-width:520px){.topbar em{display:none}.topbar .r{gap:10px;font-size:12.5px}}
 .site-head{position:sticky;top:0;z-index:60;background:var(--ink);border-bottom:1px solid #21403c;box-shadow:0 6px 24px rgba(0,0,0,.18)}
-.site-head .bar{position:relative;display:flex;align-items:center;justify-content:space-between;height:78px;gap:18px}
+.site-head .bar{position:relative;display:flex;align-items:center;justify-content:space-between;min-height:96px;padding:16px 0;gap:18px}
 .site-head .logo img{height:62px;width:auto}
 .site-head nav>ul{display:flex;gap:2px;list-style:none;align-items:center;margin:0;padding:0}
 .site-head nav>ul>li{position:relative}
@@ -67,7 +67,7 @@
 .site-head .head-phone:hover{color:var(--aqua)}
 .site-head .head-phone svg{opacity:.8;flex:0 0 17px}
 @media(max-width:1220px){.site-head .head-phone span{display:none}.site-head .head-phone{width:44px;height:44px;justify-content:center;border-radius:50%;background:rgba(255,255,255,.1)}}
-.site-head .cta-stack{display:flex;flex-direction:column;align-items:stretch;gap:4px}
+.site-head .cta-stack{display:flex;flex-direction:column;align-items:stretch;gap:6px}
 .site-head .lang-link{color:#9fc2bd;font-size:12.5px;font-weight:600;text-align:center}
 .site-head .lang-link:hover{color:#fff;text-decoration:underline}
 .site-head .dd .dd-all{border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
@@ -77,7 +77,7 @@
 .mm-btn{display:none;background:transparent;border:0;cursor:pointer;padding:8px;color:#fff}
 .mm-btn span{display:block;width:26px;height:3px;background:#fff;border-radius:3px;margin:5px 0;transition:.2s}
 .mm-btn.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}.mm-btn.open span:nth-child(2){opacity:0}.mm-btn.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-@media(max-width:1060px){.site-head nav{display:none}.site-head .bar .cta-stack{display:none}.site-head .head-phone{margin-left:auto;margin-right:4px}.mm-btn{display:block}.site-head .bar{height:70px}.site-head .logo img{height:54px}}
+@media(max-width:1060px){.site-head nav{display:none}.site-head .bar .cta-stack{display:none}.site-head .head-phone{margin-left:auto;margin-right:4px}.mm-btn{display:block}.site-head .bar{min-height:78px;padding:12px 0}.site-head .logo img{height:54px}}
 
 /* mobile menu, nested accordion */
 .mobile-menu{display:none;position:fixed;inset:0;z-index:59;background:var(--ink);color:#fff;overflow:auto;padding:120px 22px 40px}
@@ -139,7 +139,7 @@ body.mm-lock{overflow:hidden}
       </li>
       <li class="has-dd"><a href="/locations">Locations</a>
         <ul class="dd">
-          <li><a href="/east-el-paso">East El Paso<small>Open until 9:30pm</small></a></li>
+          <li><a href="/east-el-paso">East El Paso</a></li>
           <li><a href="/west-el-paso">West El Paso</a></li>
           <li><a href="/horizon-city">Horizon City</a></li>
           <li><a href="/areas-we-serve">Areas We Serve</a></li>
@@ -185,7 +185,7 @@ body.mm-lock{overflow:hidden}
 </div></section>
 
 <section class="docpage"><div class="wrap grid">
-  <div class="photo"><img src="/images/doctors/dr-curtis.jpg" alt="Dr. Alan Curtis" width="333" height="482"><span class="todo" style="margin:8px">TODO: higher-res headshot from the practice</span></div>
+  <div class="photo"><img src="/images/doctors/dr-curtis.jpg" alt="Dr. Alan Curtis" width="312" height="414"><span class="todo" style="margin:8px">TODO: higher-res headshot from the practice</span></div>
   <div class="prose">
     <h2>About Dr. Curtis</h2>
     <p>Dr. Alan Curtis has been creating healthy, confident smiles for families in Arizona and Texas since 2007. He earned his bachelor's degree from Brigham Young University, scored in the top 1% on the dental admissions exam, and completed his DDS at the UCLA School of Dentistry. He then finished a two-year orthodontic residency at Baylor College of Dentistry (Texas A&amp;M), where he received his Certificate in Orthodontics and a Master of Science in Oral Biology.</p>
