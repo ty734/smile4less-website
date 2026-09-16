@@ -1,0 +1,109 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/specialty/braces-el-paso-tx",
+      "destination": "/braces",
+      "permanent": true
+    },
+    {
+      "source": "/specialty/clear-braces-el-paso-tx",
+      "destination": "/clear-braces",
+      "permanent": true
+    },
+    {
+      "source": "/specialty/invisalign-el-paso-tx",
+      "destination": "/invisalign",
+      "permanent": true
+    },
+    {
+      "source": "/specialty/early-orthodontic-treatment-el-paso-tx",
+      "destination": "/kids-teens",
+      "permanent": true
+    },
+    {
+      "source": "/specialty/adult-orthodontic-treatment-el-paso-tx",
+      "destination": "/adult-orthodontics",
+      "permanent": true
+    },
+    {
+      "source": "/specialty/retainers-el-paso-tx",
+      "destination": "/retainers",
+      "permanent": true
+    },
+    {
+      "source": "/specialty/iconix-braces",
+      "destination": "/braces",
+      "permanent": true
+    },
+    {
+      "source": "/specialty/teeth-whitening-el-paso-tx",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/request-an-appointment",
+      "destination": "/free-consultation",
+      "permanent": true
+    },
+    {
+      "source": "/west-el-paso-tx",
+      "destination": "/west-el-paso",
+      "permanent": true
+    },
+    {
+      "source": "/Horizon-City-TX",
+      "destination": "/horizon-city",
+      "permanent": true
+    },
+    {
+      "source": "/helpful-tips",
+      "destination": "/living-with-braces",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/accessibility-statement",
+      "destination": "/accessibility",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap",
+      "destination": "/sitemap.xml",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/images/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
