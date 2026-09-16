@@ -48,6 +48,11 @@
       "permanent": true
     },
     {
+      "source": "/thank-you",
+      "destination": "/appointment-request-confirmation",
+      "permanent": true
+    },
+    {
       "source": "/west-el-paso-tx",
       "destination": "/west-el-paso",
       "permanent": true

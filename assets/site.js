@@ -1,45 +1,148 @@
 // Smile 4 Less — sitewide behaviors (vanilla, no dependencies)
-(function(){
-  // scroll reveal ("float in") — staggered, reduced-motion aware
-  if(!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)){
-    var blocks=document.querySelectorAll('main .center, main .split .txt, main .split > img, .band h2, .band p, .trust .lbl');
-    Array.prototype.forEach.call(blocks,function(el){el.classList.add('reveal');});
-    var groups=document.querySelectorAll('.grid2, .grid3, .grid4, .steps, .revs, .locs, .logos, .docs, .team, .faq, .gal, .ba');
-    Array.prototype.forEach.call(groups,function(g){
-      Array.prototype.forEach.call(g.children,function(ch,i){ch.classList.add('reveal');ch.style.setProperty('--d',(Math.min(i,8)*70)+'ms');});
+
+// ---------------------------------------------------------------------------
+// LEAD FORMS
+// TODO(Tyler): set WEBHOOK to the GHL inbound webhook (see the orthoboost-ghl-forms
+// skill). Until it is set the form validates, traps bots, and redirects to the
+// confirmation page so the whole flow can be reviewed, but nothing is POSTed.
+// ---------------------------------------------------------------------------
+var WEBHOOK = "";
+var CONFIRM_URL = "/appointment-request-confirmation";
+
+(function () {
+  "use strict";
+
+  // ---- scroll reveal ("float in"), staggered, reduced-motion aware ----
+  if (!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)) {
+    var blocks = document.querySelectorAll("main .center, main .split .txt, main .split > img, .band h2, .band p, .trust .lbl");
+    Array.prototype.forEach.call(blocks, function (el) { el.classList.add("reveal"); });
+    var groups = document.querySelectorAll(".grid2, .grid3, .grid4, .steps, .revs, .locs, .logos, .docs, .team, .faq, .gal, .ba");
+    Array.prototype.forEach.call(groups, function (g) {
+      Array.prototype.forEach.call(g.children, function (ch, i) {
+        ch.classList.add("reveal");
+        ch.style.setProperty("--d", Math.min(i, 8) * 70 + "ms");
+      });
     });
-    var items=document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){Array.prototype.forEach.call(items,function(el){el.classList.add('in');});}
-    else{
-      var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -8% 0px',threshold:.08});
-      Array.prototype.forEach.call(items,function(el){io.observe(el);});
+    var items = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      Array.prototype.forEach.call(items, function (el) { el.classList.add("in"); });
+    } else {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+      }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+      Array.prototype.forEach.call(items, function (el) { io.observe(el); });
     }
-    // anything already in view on load
   }
 
-  // consultation / contact forms
-  // TODO(Tyler): set data-endpoint on the <form> to the GHL / webhook URL. Until then the form
-  // validates, captures UTMs, and redirects to /thank-you so the flow can be reviewed end to end.
-  function q(n){try{return new URLSearchParams(location.search).get(n)||''}catch(e){return ''}}
-  Array.prototype.forEach.call(document.querySelectorAll('form[data-lead]'),function(f){
-    ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid'].forEach(function(k){
-      var v=q(k);if(!v)return;var i=document.createElement('input');i.type='hidden';i.name=k;i.value=v;f.appendChild(i);
-    });
-    var p=document.createElement('input');p.type='hidden';p.name='page';p.value=location.pathname;f.appendChild(p);
-    f.addEventListener('submit',function(ev){
+  // ---- attribution: persist UTM / click IDs across the session ----
+  var ATTR = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "fbclid", "msclkid"];
+  function qp(n) { try { return new URLSearchParams(location.search).get(n) || ""; } catch (e) { return ""; } }
+  function store() {
+    try {
+      ATTR.forEach(function (k) { var v = qp(k); if (v) localStorage.setItem("s4l_" + k, v); });
+      if (!localStorage.getItem("s4l_landing")) localStorage.setItem("s4l_landing", location.pathname);
+      if (!localStorage.getItem("s4l_referrer")) localStorage.setItem("s4l_referrer", document.referrer || "direct");
+    } catch (e) {}
+  }
+  function recall(k) { try { return localStorage.getItem("s4l_" + k) || ""; } catch (e) { return ""; } }
+  store();
+
+  // ---- validation ----
+  function digits(s) { return (s || "").replace(/\D/g, ""); }
+  function validPhone(s) {
+    var d = digits(s);
+    if (d.length === 11 && d.charAt(0) === "1") d = d.slice(1);
+    if (d.length !== 10) return false;
+    if (d.charAt(0) === "0" || d.charAt(0) === "1") return false;      // invalid area code
+    if (/^(\d)\1{9}$/.test(d)) return false;                            // 0000000000
+    if (d === "1234567890") return false;
+    return true;
+  }
+  function validEmail(el) {
+    if (!el.value) return true;                                         // email is optional
+    if (!el.checkValidity()) return false;
+    return /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(el.value);            // type=email alone accepts a@b
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll("form[data-lead]"), function (f) {
+    var loaded = Date.now();
+    var msg = document.createElement("p");
+    msg.className = "formmsg";
+    msg.setAttribute("role", "alert");
+    msg.hidden = true;
+    var btn = f.querySelector("button[type=submit]");
+    if (btn) btn.parentNode.insertBefore(msg, btn);
+
+    function fail(t) {
+      msg.textContent = t + " Or just call us at (915) 304-3090.";
+      msg.hidden = false;
+      msg.className = "formmsg err";
+      if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || "Send"; }
+    }
+
+    f.addEventListener("submit", function (ev) {
       ev.preventDefault();
-      if(f.querySelector('.hp input')&&f.querySelector('.hp input').value)return; // honeypot
-      var btn=f.querySelector('button[type=submit]');if(btn){btn.disabled=true;btn.textContent='Sending…';}
-      var data={};new FormData(f).forEach(function(v,k){data[k]=v;});
-      var ep=f.getAttribute('data-endpoint');
-      var done=function(){location.href='/thank-you';};
-      if(!ep){setTimeout(done,400);return;}
-      fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).then(done).catch(done);
+      msg.hidden = true;
+
+      var hp = f.querySelector(".hp input");
+      if (hp && hp.value) { location.href = CONFIRM_URL; return; }              // honeypot
+      if (Date.now() - loaded < 2500) { location.href = CONFIRM_URL; return; }  // speed trap
+
+      var name = f.querySelector("[name=name]");
+      var phone = f.querySelector("[name=phone]");
+      var email = f.querySelector("[name=email]");
+      if (name && !name.value.trim()) return fail("Please enter your name.");
+      if (phone && !validPhone(phone.value)) return fail("Please enter a valid 10-digit phone number.");
+      if (email && !validEmail(email)) return fail("That email address doesn't look right.");
+
+      if (btn) { btn.dataset.label = btn.textContent; btn.disabled = true; btn.textContent = "Sending…"; }
+
+      var data = {};
+      new FormData(f).forEach(function (v, k) { data[k] = v; });
+      ATTR.forEach(function (k) { data[k] = qp(k) || recall(k); });
+      data.page = location.pathname;
+      data.page_url = location.href;
+      data.landing_page = recall("landing");
+      data.referrer = recall("referrer");
+      data.form_name = f.getAttribute("data-lead") || "request_exam";
+      // send both key styles so either GHL mapping works
+      data.full_name = data.name; data.first_name = (data.name || "").split(" ")[0];
+      data.last_name = (data.name || "").split(" ").slice(1).join(" ");
+      data.phone_number = data.phone;
+
+      function done() {
+        try {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: "generate_lead", form_name: data.form_name });
+        } catch (e) {}
+        location.href = CONFIRM_URL;
+      }
+      if (!WEBHOOK) { setTimeout(done, 300); return; }
+      fetch(WEBHOOK, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      }).then(done).catch(done);
     });
   });
 
-  // phone format helper
-  Array.prototype.forEach.call(document.querySelectorAll('input[type=tel]'),function(i){
-    i.addEventListener('input',function(){var d=i.value.replace(/\D/g,'').slice(0,10);var o=d;if(d.length>6)o='('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6);else if(d.length>3)o='('+d.slice(0,3)+') '+d.slice(3);i.value=o;});
+  // ---- phone field formatting ----
+  Array.prototype.forEach.call(document.querySelectorAll("input[type=tel]"), function (i) {
+    i.addEventListener("input", function () {
+      var d = digits(i.value).slice(0, 10), o = d;
+      if (d.length > 6) o = "(" + d.slice(0, 3) + ") " + d.slice(3, 6) + "-" + d.slice(6);
+      else if (d.length > 3) o = "(" + d.slice(0, 3) + ") " + d.slice(3);
+      i.value = o;
+    });
+  });
+
+  // ---- click-to-call tracking ----
+  Array.prototype.forEach.call(document.querySelectorAll('a[href^="tel:"]'), function (a) {
+    a.addEventListener("click", function () {
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "click_to_call", phone: a.getAttribute("href").replace("tel:", "") });
+      } catch (e) {}
+    });
   });
 })();

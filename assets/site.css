@@ -9,7 +9,7 @@ html{scroll-behavior:smooth}
 body{font-family:var(--sans);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;background:#fff}
 h1,h2,h3,h4{font-family:var(--disp);line-height:1.04;font-weight:800;letter-spacing:-.5px}
 a{text-decoration:none;color:inherit}
-img{display:block;max-width:100%}
+img{display:block;max-width:100%;height:auto}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 .narrow{max-width:860px;margin:0 auto}
 section{padding:96px 0}
@@ -56,7 +56,7 @@ h2.sec{font-size:44px;text-transform:uppercase;margin-bottom:12px}
 @media(max-width:760px){.mstrip .row{grid-template-columns:1fr 1fr;gap:14px}}
 
 /* prose */
-.prose{font-size:17.5px;color:#1f2f2d}
+.prose{font-size:17.5px;color:#1f2f2d;overflow-wrap:break-word}
 .prose>*+*{margin-top:18px}
 .prose h2{font-size:34px;margin-top:48px;text-transform:uppercase}
 .prose h3{font-size:24px;margin-top:34px}
@@ -73,10 +73,12 @@ h2.sec{font-size:44px;text-transform:uppercase;margin-bottom:12px}
 .prose a:not(.btn):hover{color:var(--teal)}
 .prose img.inline{border-radius:18px;margin:26px 0}
 .twocol{display:grid;grid-template-columns:1fr 340px;gap:56px;align-items:start}
+.twocol>*{min-width:0}
+.prose{min-width:0}
 .twocol aside{position:sticky;top:104px}
 @media(max-width:960px){.twocol{grid-template-columns:1fr}.twocol aside{position:static}}
 .side-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:0 10px 26px rgba(4,106,99,.07)}
-.side-card h3{font-size:20px;text-transform:uppercase;margin-bottom:10px}
+.side-card h2,.side-card h3{font-size:20px;text-transform:uppercase;margin-bottom:10px;font-family:var(--disp);font-weight:800;line-height:1.04;letter-spacing:-.5px}
 .side-card p{color:var(--slate);font-size:15px;margin-bottom:14px}
 .side-card .btn{width:100%;text-align:center}
 .side-card ul{list-style:none;margin-top:14px;display:grid;gap:8px;font-size:14.5px}
@@ -211,11 +213,11 @@ a.card:hover,.card.hov:hover{transform:translateY(-4px);box-shadow:0 18px 38px r
 
 /* forms */
 .form{background:#fff;border:1px solid var(--line);border-radius:22px;padding:30px;box-shadow:0 18px 44px rgba(4,106,99,.10)}
-.form h3{font-size:24px;text-transform:uppercase;margin-bottom:4px}
+.form h2,.form h3{font-size:24px;text-transform:uppercase;margin-bottom:4px;font-family:var(--disp);font-weight:800;line-height:1.04;letter-spacing:-.5px}
 .form .sub{color:var(--slate);font-size:14.5px;margin-bottom:18px}
 .form .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .form label{display:block;font-weight:600;font-size:13.5px;margin:12px 0 6px}
-.form input,.form select,.form textarea{width:100%;font:inherit;font-size:15.5px;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
+.form input,.form select,.form textarea{width:100%;font:inherit;font-size:16px;min-width:0;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
 .form input:focus,.form select:focus,.form textarea:focus{outline:none;border-color:var(--teal);box-shadow:0 0 0 3px rgba(7,160,151,.15)}
 .form textarea{min-height:96px;resize:vertical}
 .form .btn{width:100%;text-align:center;margin-top:18px}
@@ -238,7 +240,7 @@ a.card:hover,.card.hov:hover{transform:translateY(-4px);box-shadow:0 18px 38px r
 .anchor{scroll-margin-top:110px}
 
 /* compare table */
-.cmp{overflow:auto;margin-top:30px}
+.cmp{overflow-x:auto;-webkit-overflow-scrolling:touch;margin-top:30px;max-width:100%}
 .cmp table{min-width:640px}
 .cmp td:first-child{font-weight:700}
 
@@ -247,7 +249,65 @@ a.card:hover,.card.hov:hover{transform:translateY(-4px);box-shadow:0 18px 38px r
 .todo{background:#fff8e6;border:1px dashed #e0b34a;color:#7a5a00;font-size:13px;padding:8px 12px;border-radius:10px;display:inline-block}
 
 /* motion */
-.js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,.7,.2,1),transform .7s cubic-bezier(.22,.7,.2,1);transition-delay:var(--d,0ms);will-change:opacity,transform}
+.js .reveal{opacity:.01;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,.7,.2,1),transform .7s cubic-bezier(.22,.7,.2,1);transition-delay:var(--d,0ms);will-change:opacity,transform}
 .js .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1;transform:none;transition:none}}
 .skip{position:absolute;left:-9999px;top:0;background:#fff;padding:10px;z-index:100}.skip:focus{left:10px}
+
+
+/* ===== audit fixes: mobile ergonomics + sticky call bar ===== */
+a[href^="tel:"]{white-space:nowrap}
+.site-head .cta-sm,.callbar a{white-space:nowrap}
+
+/* sticky mobile call bar — most of this practice's traffic is a parent on a phone */
+.callbar{display:none}
+@media(max-width:860px){
+  .callbar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:70;
+    background:rgba(16,33,31,.97);backdrop-filter:blur(6px);border-top:1px solid #21403c;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
+  .callbar a{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:999px;
+    font:700 15.5px/1 var(--sans);text-decoration:none}
+  .callbar .cb-cta{background:var(--teal);color:#fff}
+  .callbar .cb-call{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
+  body{padding-bottom:78px}
+  .mobile-menu{padding-bottom:110px}
+}
+@media print{.callbar{display:none}}
+
+/* tap targets: real controls get 44px+ on mobile (inline prose links stay inline) */
+@media(max-width:860px){
+  main .btn,.side-card .btn,.band .btn{display:block;width:100%;text-align:center;min-height:48px;padding-top:15px;padding-bottom:15px}
+  main .btns{flex-direction:column;align-items:stretch;gap:12px}
+  .btn.sm{min-height:44px;padding:13px 20px}
+  /* footer links are real tap targets; two columns keeps the footer from becoming a mile long */
+  .site-foot a{display:flex;align-items:center;min-height:44px;padding:2px 0;margin-bottom:0}
+  .site-foot .fcols>div>a{display:flex}
+  .site-foot .loc a{display:inline-block;min-height:0;padding:4px 0}
+  .site-foot .fbar a{display:inline-block;min-height:44px;align-items:center}
+  .toc a,.crumbs a{display:inline-block;padding:5px 0}
+  section{padding:56px 0}
+  section.tight{padding:40px 0}
+  .phero{padding:44px 0 40px}
+}
+
+/* colored-braces picker: the 10-tooth row must not force page overflow at 320 */
+@media(max-width:560px){
+  .teeth{overflow-x:auto;justify-content:flex-start;padding:16px 10px}
+  .picker .sw button{width:44px;height:44px}
+}
+
+/* prose tables scroll instead of pushing the page wide */
+@media(max-width:700px){
+  .prose>table{display:block;overflow-x:auto;white-space:nowrap;max-width:100%}
+}
+
+/* footer link columns go two-across on phones so 44px targets don't create a mile of footer */
+@media(max-width:760px){
+  .site-foot .fcols>div:not(:first-child):not(.loc){display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+  .site-foot .fcols>div:not(:first-child):not(.loc) h3{grid-column:1/-1}
+}
+@media(max-width:400px){
+  .site-foot .fcols>div:not(:first-child):not(.loc){grid-template-columns:1fr}
+}
+
+/* width/height attrs are emitted for CLS; keep aspect ratio where CSS only sets a height */
+.logo img,.flogo img,.logos img{width:auto}
