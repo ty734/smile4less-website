@@ -21,7 +21,7 @@ section.tight{padding:64px 0}
 .link{color:var(--deep);font-weight:700}.link:hover{color:var(--teal)}
 .mist{background:var(--mist)}.stone{background:var(--stone)}.cloud{background:var(--cloud)}
 h2.sec{font-size:44px;text-transform:uppercase;margin-bottom:12px}
-@media(max-width:860px){h2.sec{font-size:32px}section{padding:64px 0}}
+@media(max-width:860px){h2.sec{font-size:32px}section{padding:56px 0}}
 
 /* buttons */
 .btn{display:inline-block;font-family:var(--sans);font-weight:700;padding:16px 30px;border-radius:999px;font-size:16px;transition:.15s;border:2px solid transparent;cursor:pointer;line-height:1.2}
@@ -294,11 +294,6 @@ a[href^="tel:"]{white-space:nowrap}
   main .btn,.side-card .btn,.band .btn{display:block;width:100%;text-align:center;min-height:48px;padding-top:15px;padding-bottom:15px}
   main .btns{flex-direction:column;align-items:stretch;gap:12px}
   .btn.sm{min-height:44px;padding:13px 20px}
-  /* footer links are real tap targets; two columns keeps the footer from becoming a mile long */
-  .site-foot a{display:flex;align-items:center;min-height:44px;padding:2px 0;margin-bottom:0}
-  .site-foot .fcols>div>a{display:flex}
-  .site-foot .loc a{display:inline-block;min-height:0;padding:4px 0}
-  .site-foot .fbar a{display:inline-block;min-height:44px;align-items:center}
   .toc a,.crumbs a{display:inline-block;padding:5px 0}
   section{padding:56px 0}
   section.tight{padding:40px 0}
@@ -318,12 +313,21 @@ a[href^="tel:"]{white-space:nowrap}
 
 /* footer link columns go two-across on phones so 44px targets don't create a mile of footer */
 @media(max-width:760px){
-  .site-foot .fcols>div:not(:first-child):not(.loc){display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
-  .site-foot .fcols>div:not(:first-child):not(.loc) h3{grid-column:1/-1}
 }
 @media(max-width:400px){
-  .site-foot .fcols>div:not(:first-child):not(.loc){grid-template-columns:1fr}
 }
 
 /* width/height attrs are emitted for CLS; keep aspect ratio where CSS only sets a height */
 .logo img,.flogo img,.logos img{width:auto}
+
+/* phones: tighten the vertical rhythm and stop cropping card photos. A fixed image
+   height makes a 375px-wide card a 1.64:1 letterbox while these photos are 1.25-1.50:1,
+   which cut people's heads off. aspect-ratio keeps the framing the photo was shot with. */
+@media(max-width:560px){
+  section{padding:44px 0}
+  section.tight{padding:36px 0}
+  .trust{padding:40px 0}
+  .why img{height:auto;aspect-ratio:4/3}
+  .card img{height:auto;aspect-ratio:3/2}
+  .why .wb{padding:22px 20px 24px}
+}
