@@ -3,6 +3,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/dr-joseph-morneau",
+      "destination": "/meet-the-doctors",
+      "permanent": true
+    },
+    {
       "source": "/specialty/braces-el-paso-tx",
       "destination": "/braces",
       "permanent": true
