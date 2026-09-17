@@ -173,7 +173,7 @@ a.card:hover,.card.hov:hover{transform:translateY(-4px);box-shadow:0 18px 38px r
 .doc h3{font-size:24px;text-transform:uppercase;margin-bottom:2px}
 .doc .cred{color:var(--deep);font-weight:700;font-size:14px;margin-bottom:8px}
 .doc p{color:var(--slate);font-size:14.5px;margin-bottom:12px}
-.doc .locs{font-size:13px;color:var(--slate)}.doc .locs b{color:var(--ink)}
+.doc .seen-at{font-size:13px;color:var(--slate)}.doc .seen-at b{color:var(--ink)}
 @media(max-width:900px){.docs>*{flex-basis:calc((100% - 26px)/2)}}@media(max-width:560px){.docs>*{flex-basis:100%}}
 .team{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:44px}
 .tm{text-align:center}
