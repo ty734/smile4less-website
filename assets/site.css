@@ -46,7 +46,8 @@ h2.sec{font-size:44px;text-transform:uppercase;margin-bottom:12px}
 .phero.simple{padding:64px 0 48px}.phero.simple h1{font-size:50px}
 .crumbs{font-size:13px;color:var(--slate);margin-bottom:18px}.crumbs a{color:var(--deep);font-weight:600}.crumbs span{margin:0 8px;opacity:.5}
 .phero.dark .crumbs{color:#9fc2bd}.phero.dark .crumbs a{color:#dff4f1}
-@media(max-width:900px){.phero .grid{grid-template-columns:1fr;gap:28px}.phero h1{font-size:42px}.phero img{height:300px}.phero.simple h1{font-size:36px}}
+@media(max-width:900px){.phero .grid{grid-template-columns:1fr;gap:28px}.phero h1{font-size:42px}.phero img{height:360px}}
+@media(max-width:640px){.phero img{height:auto;aspect-ratio:1/1}.phero.simple h1{font-size:36px}}
 
 /* money strip */
 .mstrip{background:var(--ink);color:#fff}
