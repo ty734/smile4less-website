@@ -331,3 +331,19 @@ a[href^="tel:"]{white-space:nowrap}
   .card img{height:auto;aspect-ratio:3/2}
   .why .wb{padding:22px 20px 24px}
 }
+
+/* Before/after marquee (smile gallery). The tiles are generated identical in size by
+   build/make_gallery.py, so every card is the same height by construction rather than
+   by CSS gymnastics. The track holds the set twice and translates exactly -50%, which
+   is what makes the loop seamless; keep the duplicate in the markup if you edit it. */
+.ba-scroll{overflow:hidden;margin-top:34px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.ba-track{display:flex;gap:18px;width:max-content;animation:ba-marquee 46s linear infinite}
+.ba-track img{height:auto;width:562px;max-width:78vw;border-radius:14px;border:1px solid var(--line);box-shadow:0 10px 26px rgba(4,106,99,.07);display:block}
+.ba-scroll:hover .ba-track,.ba-scroll:focus-within .ba-track{animation-play-state:paused}
+@keyframes ba-marquee{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 9px))}}
+@media(prefers-reduced-motion:reduce){
+  .ba-track{animation:none;overflow-x:auto;width:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+  .ba-track img{scroll-snap-align:center}
+  .ba-scroll{-webkit-mask-image:none;mask-image:none}
+}
+@media(max-width:560px){.ba-track{gap:12px}}
