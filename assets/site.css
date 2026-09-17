@@ -349,3 +349,9 @@ a[href^="tel:"]{white-space:nowrap}
   .ba-scroll{-webkit-mask-image:none;mask-image:none}
 }
 @media(max-width:560px){.ba-track{gap:12px}}
+
+/* Illustrations in the patient care guide. Generated stills of food and cleaning kit -
+   objects only, never a person, so nothing can read as a real patient or a real result. */
+.guide-fig{margin:18px 0 26px}
+.guide-fig img{width:100%;height:auto;border-radius:16px;border:1px solid var(--line);display:block}
+.guide-fig figcaption{margin-top:9px;color:var(--slate);font-size:14px}
