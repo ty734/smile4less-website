@@ -8,7 +8,7 @@
 <meta property="og:title" content="Free Orthodontic Consultation in El Paso | Smile 4 Less"><meta property="og:description" content="Book a free braces or Invisalign consultation in El Paso. Exam and X-ray included, a written quote with your monthly payment, no obligation."><meta property="og:type" content="website"><meta property="og:url" content="https://www.smile4lessbraces.com/free-consultation"><meta property="og:image" content="https://www.smile4lessbraces.com/images/step-1-consult.jpg">
 <meta name="twitter:card" content="summary_large_image">
 
-<link rel="icon" href="/images/favicon.png">
+<link rel="icon" href="/images/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16.png"><link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
 <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -181,7 +181,7 @@ body.mm-lock{overflow:hidden}
 .conv .phero .grid{grid-template-columns:1fr 480px;align-items:start}
 .conv .phero h1{font-size:54px}
 .conv .incl{list-style:none;display:grid;gap:10px;margin:22px 0 0;font-size:16.5px}
-.conv .incl li{display:flex;gap:11px;align-items:flex-start}.conv .incl li::before{content:"✓";color:var(--teal);font-weight:800;flex:0 0 18px}
+.conv .incl li{position:relative;padding-left:29px}.conv .incl li::before{content:"✓";position:absolute;left:0;top:0;color:var(--teal);font-weight:800}
 .conv .trust{padding:40px 0}
 @media(max-width:900px){.conv .phero .grid{grid-template-columns:1fr}.conv .phero h1{font-size:40px}}
 </style>
@@ -207,11 +207,6 @@ body.mm-lock{overflow:hidden}
       <div><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel"></div>
     </div>
     <label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email">
-    <div class="row">
-      <div><label for="f-who">Who is this for?</label><select id="f-who" name="patient"><option>My child (under 12)</option><option>My teen (12–17)</option><option>Myself (adult)</option><option>More than one person</option></select></div>
-      <div><label for="f-int">Interested in</label><select id="f-int" name="interest"><option>Not sure yet</option><option>Braces</option><option>Clear braces</option><option>Invisalign</option><option>Early treatment (kids)</option><option>Retainer / other</option></select></div>
-    </div>
-    <label for="f-loc">Preferred office</label><select id="f-loc" name="location"><option>Closest to me / no preference</option><option>East El Paso (12244 Montana)</option><option>West El Paso (7480 Remcon Circle)</option><option>Horizon City (13468 Eastlake Blvd)</option></select>
     <label for="f-msg">Anything we should know? (optional)</label><textarea id="f-msg" name="message" placeholder="Best time to reach you, insurance, questions..."></textarea>
     <div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
     <button class="btn teal" type="submit">Request my free consultation</button>
