@@ -6,31 +6,24 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
-<style>
+<link rel="stylesheet" href="/assets/site.css"><style>/* Homepage-only styles. Everything shared with the rest of the site now lives in
+   assets/site.css, which this page loads first. What remains here is either unique to
+   the homepage (hero, difference, services, carousel) or a deliberate override of a
+   site.css value to preserve the layout the office approved - e.g. section padding is
+   104px here vs 96px elsewhere. Do not re-add shared widget rules to this block. */
+
  :root{
   --teal:#07A097;--deep:#046A63;--aqua:#17BBBB;--ink:#10211F;
   --white:#fff;--cloud:#F6FBFA;--mist:#EAF7F5;--stone:#F1F3F2;--slate:#51635F;--line:#D7E4E2;
   --star:#F5B544;--teal-cta:#06857E;
   --disp:"League Spartan",system-ui,sans-serif;--sans:"Inter",system-ui,sans-serif;
  }
- *{box-sizing:border-box;margin:0;padding:0}
  body{font-family:var(--sans);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
- h1,h2,h3,h4{font-family:var(--disp);line-height:1.04;font-weight:800;letter-spacing:-.5px}
- a{text-decoration:none;color:inherit}
  img{display:block;max-width:100%}
- .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
- section{padding:104px 0}
- .eyebrow{display:inline-block;font-family:var(--disp);color:var(--deep);font-weight:700;font-size:14px;letter-spacing:.22em;text-transform:uppercase;margin-bottom:14px}
- .lead{color:var(--slate);font-size:18px}
- .center{text-align:center}.center .lead{max-width:640px;margin:0 auto}
- .link{color:var(--deep);font-weight:700}.link:hover{color:var(--teal)}
+ section{padding:104px 0}.center .lead{max-width:640px;margin:0 auto}
 
  /* buttons */
- .btn{display:inline-block;font-family:var(--sans);font-weight:700;padding:16px 30px;border-radius:999px;font-size:16px;transition:.15s;border:2px solid transparent;cursor:pointer}
- .btn.fill{background:var(--deep);color:#fff;border-color:var(--deep)}.btn.fill:hover{background:var(--teal);border-color:var(--teal)}
- .btn.white{background:#fff;color:var(--deep);border-color:#fff}.btn.white:hover{background:var(--mist);border-color:var(--mist)}
- .btn.lineW{background:transparent;color:#fff;border-color:rgba(255,255,255,.6)}.btn.lineW:hover{background:rgba(255,255,255,.14)}
- .btn.lineT{background:transparent;color:var(--deep);border-color:var(--deep)}.btn.lineT:hover{background:var(--mist)}
+ .btn{display:inline-block;font-family:var(--sans);font-weight:700;padding:16px 30px;border-radius:999px;font-size:16px;transition:.15s;border:2px solid transparent;cursor:pointer}.btn.fill:hover{background:var(--teal);border-color:var(--teal)}
 
  /* ===== HERO (Variation C) ===== */
  .hero{position:relative;min-height:clamp(520px,68vh,720px);display:flex;flex-direction:column;overflow:hidden;background:var(--deep);padding:0}
@@ -83,24 +76,10 @@
  @media(max-width:1000px){.stuck nav ul{display:none}}
 
  /* split (image + text) */
- .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
- .split.flip .txt{order:2}
- .split img{border-radius:24px;width:100%;height:440px;object-fit:cover;box-shadow:0 24px 50px rgba(4,106,99,.16)}
  .split h2{font-size:46px;margin:6px 0 16px}
- .split p{color:var(--slate);font-size:18px;max-width:540px}
- .split ul{list-style:none;margin:18px 0 0;display:grid;gap:12px}
- .split li{display:flex;gap:12px;font-size:16.5px}
- .split li .tk{flex:0 0 24px;height:24px;border-radius:50%;background:var(--deep);color:#fff;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center}
- .split .btn{margin-top:26px}
  @media(max-width:860px){.split{grid-template-columns:1fr;gap:28px}.split.flip .txt{order:0}.split img{height:300px}.split h2{font-size:34px}}
 
  /* why-us 3up */
- .why3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
- .why{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 26px rgba(4,106,99,.06)}
- .why img{width:100%;height:200px;object-fit:cover;display:block}
- .why .wb{padding:28px 26px 32px}
- .why h3{font-size:23px;margin-bottom:10px;text-transform:uppercase;letter-spacing:0}
- .why p{color:var(--slate);font-size:15px}
  @media(max-width:820px){.why3{grid-template-columns:1fr}}
 
  /* services */
@@ -109,34 +88,20 @@
  .card:hover{transform:translateY(-4px);box-shadow:0 18px 38px rgba(4,106,99,.13)}
  .card img{height:230px;width:100%;object-fit:cover}
  .card .b{padding:22px}
- .card h3{font-size:22px;margin-bottom:6px;text-transform:uppercase}
  .card p{color:var(--slate);font-size:14px;margin-bottom:12px}
  @media(max-width:820px){.svc{grid-template-columns:1fr 1fr}}@media(max-width:560px){.svc{grid-template-columns:1fr}}
 
  /* CTA band */
- .band{background:linear-gradient(135deg,var(--teal),var(--deep));color:#fff;text-align:center}
- .band h2{font-size:46px;color:#fff;margin-bottom:12px;text-transform:uppercase}
- .band p{opacity:.95;font-size:18px;max-width:600px;margin:0 auto 26px}
 
  /* steps */
- .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
- .step{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 10px 26px rgba(4,106,99,.07);text-align:center;padding-bottom:26px}
- .step .pic{position:relative;height:250px}.step .pic img{width:100%;height:100%;object-fit:cover}
- .step .num{position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);width:54px;height:54px;border-radius:50%;background:var(--deep);color:#fff;font-family:var(--disp);font-weight:800;font-size:24px;display:flex;align-items:center;justify-content:center;border:4px solid #fff}
- .step h3{font-size:23px;margin:40px 0 6px;text-transform:uppercase}.step p{color:var(--slate);font-size:15px;padding:0 22px}
+ .step .pic{position:relative;height:250px}
  @media(max-width:760px){.steps{grid-template-columns:1fr}}
 
  /* trust logos */
- .trust{padding:64px 0;background:#fff}
- .trust .lbl{text-align:center;font-family:var(--disp);color:var(--deep);font-weight:700;font-size:13px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:32px}
- .logos{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:30px 54px}
- .logos img{width:auto;object-fit:contain;display:block;flex:0 0 auto}
- @media(max-width:820px){.logos{gap:24px 38px}.logos img{transform:scale(.85)}}
+ 
 
  /* reviews */
- .revs{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:44px}
  .rev{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px}
- .rev .st{color:var(--star);font-size:18px;letter-spacing:1px;margin-bottom:10px}
  .rev p{font-size:15.5px;color:var(--ink);margin-bottom:14px}
  .rev b{font-weight:800}
  .revfoot{text-align:center;margin-top:36px;color:var(--slate);font-weight:600}
@@ -155,14 +120,7 @@
  .slide img{height:300px;width:100%;object-fit:cover;display:block}
 
  /* locations */
- .locs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:44px}
- .locs .loc{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 10px 26px rgba(4,106,99,.07)}
- .locs .loc iframe{width:100%;height:200px;border:0;display:block}
- .locs .loc .lb{padding:22px 24px 26px}
- .locs .loc h3{font-size:23px;color:var(--deep);margin-bottom:8px;text-transform:uppercase}
- .locs .loc .m{color:var(--slate);font-size:14px;line-height:1.7}
- .locs .loc .p{font-weight:800;margin:8px 0 14px}
- @media(max-width:860px){.locs{grid-template-columns:1fr}}
+ 
 
  /* footer */
  footer{background:var(--ink);color:#cfe3e0;padding:64px 0 28px}
@@ -174,8 +132,6 @@
  @media(max-width:820px){.fcols{grid-template-columns:1fr 1fr}}
 
  /* ===== premium motion: scroll reveal ("float in") ===== */
- .js .reveal{transform:translateY(26px);transition:transform .7s cubic-bezier(.22,.7,.2,1);transition-delay:var(--d,0ms);will-change:transform}
- .js .reveal.in{transform:none}
  @media(prefers-reduced-motion:reduce){.js .reveal{transform:none;transition:none}}
 
  /* hero entrance */
@@ -192,8 +148,6 @@
  }
 
  /* ===== reviews, premium upgrade ===== */
- .loc .lb h3 a{color:inherit;text-decoration:none}
- .loc .lb h3 a:hover{text-decoration:underline}
  .revsec{position:relative;overflow:hidden}
  .revsec .wrap{position:relative;z-index:1}
  .revsec .deco{position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(23,187,187,.18),rgba(23,187,187,0) 70%);pointer-events:none;z-index:0}
@@ -204,22 +158,10 @@
    .revsec .deco.a{animation:floaty 9s ease-in-out infinite}
    .revsec .deco.b{animation:floaty 12s ease-in-out infinite reverse}
  }
- .gbadge{display:inline-flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:11px 24px;margin:22px auto 0;box-shadow:0 10px 26px rgba(4,106,99,.07)}
- .gbadge .gico{width:22px;height:22px;flex:0 0 22px}
- .gbadge .stars{color:var(--star);letter-spacing:2px;font-size:15px}
- .gbadge .gtxt{color:var(--slate);font-size:14px;font-weight:600}
  .rev{position:relative;overflow:hidden;padding:30px 28px;box-shadow:0 8px 22px rgba(4,106,99,.05);transition:transform .25s,box-shadow .25s}
- .rev::before{content:"";position:absolute;left:0;top:0;width:100%;height:4px;background:linear-gradient(90deg,var(--aqua),var(--teal));transform:scaleX(0);transform-origin:left;transition:transform .3s}
- .rev:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(4,106,99,.15)}
- .rev:hover::before{transform:scaleX(1)}
  .rev .qmark{position:absolute;top:-10px;right:14px;font-family:var(--disp);font-size:130px;line-height:1;color:var(--teal);opacity:.07;pointer-events:none;z-index:0}
  .rev .st,.rev p,.rev .revby{position:relative;z-index:1}
  .rev p{margin-bottom:0}
- .revby{display:flex;align-items:center;gap:12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
- .revby .av{flex:0 0 42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--aqua),var(--deep));color:#fff;font-family:var(--disp);font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center}
- .revby .who{display:flex;flex-direction:column;line-height:1.35}
- .revby .who b{font-size:15px}
- .revby .src{display:flex;align-items:center;gap:5px;font-size:12px;color:var(--slate)}
  .revby .gico{width:14px;height:14px;flex:0 0 14px}
 </style><style>.callbar{display:none}.skip{position:absolute;left:-9999px;top:0;background:#fff;padding:10px;z-index:100}.skip:focus{left:10px}/* sticky mobile call bar — most of this practice's traffic is a parent on a phone */
 .callbar{display:none}
@@ -484,7 +426,7 @@ body.mm-lock{overflow:hidden}
 <section class="band"><div class="wrap">
   <h2>Ready for a smile that fits your budget?</h2>
   <p>Your first visit is free, exam and X-ray included. We'll show you the plan and the price, no pressure.</p>
-  <a class="btn white" href="/free-consultation">Schedule a Free Consultation</a>
+  <div class="btns"><a class="btn white" href="/free-consultation">Schedule a Free Consultation</a><a class="btn lineW" href="tel:9153043090">Call (915) 304-3090</a></div>
 </div></section>
 
 <!-- 3 STEPS -->
@@ -501,11 +443,11 @@ body.mm-lock{overflow:hidden}
 <section class="trust"><div class="wrap">
   <div class="lbl">Trusted Certifications &amp; Memberships</div>
   <div class="logos">
-    <a href="https://aaoinfo.org/" target="_blank" rel="noopener" aria-label="American Association of Orthodontists (opens in a new tab)"><img src="/images/logos/aao.png" alt="American Association of Orthodontists" style="height:48px" width="300" height="105"></a>
-    <a href="https://www.invisalign.com/" target="_blank" rel="noopener" aria-label="Invisalign (opens in a new tab)"><img src="/images/logos/invisalign.png" alt="Invisalign Provider" style="height:36px" width="300" height="73"></a>
-    <a href="https://www.ada.org/" target="_blank" rel="noopener" aria-label="American Dental Association (opens in a new tab)"><img src="/images/logos/ada.png" alt="American Dental Association" style="height:44px" width="300" height="99"></a>
-    <a href="https://www.tda.org/" target="_blank" rel="noopener" aria-label="Texas Dental Association (opens in a new tab)"><img src="/images/logos/tda.png" alt="Texas Dental Association" style="height:66px" width="300" height="140"></a>
-    <a href="https://www.clintweb.net/" target="_blank" rel="noopener" aria-label="Clint Independent School District (opens in a new tab)"><img src="/images/logos/clint-isd.png" alt="Clint ISD. Partner in Education" style="height:72px" width="202" height="200"></a>
+    <a href="https://aaoinfo.org/" target="_blank" rel="noopener" aria-label="American Association of Orthodontists (opens in a new tab)"><img src="/images/logos/aao.png" alt="American Association of Orthodontists" style="height:48px" loading="lazy" width="300" height="105"></a>
+    <a href="https://www.invisalign.com/" target="_blank" rel="noopener" aria-label="Invisalign (opens in a new tab)"><img src="/images/logos/invisalign.png" alt="Invisalign Provider" style="height:36px" loading="lazy" width="300" height="73"></a>
+    <a href="https://www.ada.org/" target="_blank" rel="noopener" aria-label="American Dental Association (opens in a new tab)"><img src="/images/logos/ada.png" alt="American Dental Association" style="height:44px" loading="lazy" width="300" height="99"></a>
+    <a href="https://www.tda.org/" target="_blank" rel="noopener" aria-label="Texas Dental Association (opens in a new tab)"><img src="/images/logos/tda.png" alt="Texas Dental Association" style="height:66px" loading="lazy" width="300" height="140"></a>
+    <a href="https://www.clintweb.net/" target="_blank" rel="noopener" aria-label="Clint Independent School District (opens in a new tab)"><img src="/images/logos/clint-isd.png" alt="Clint ISD Partner in Education" style="height:72px" loading="lazy" width="202" height="200"></a>
   </div>
 </div></section>
 
@@ -556,12 +498,12 @@ body.mm-lock{overflow:hidden}
 </div></section>
 
 <!-- LOCATIONS -->
-<section style="background:var(--stone)"><div class="wrap">
-  <div class="center"><span class="eyebrow">Three locations across El Paso</span><h2 style="font-size:46px;text-transform:uppercase">Find your closest office</h2></div>
+<section class="stone"><div class="wrap">
+  <div class="center"><span class="eyebrow">Three locations across El Paso</span><h2 class="sec">Find your closest office</h2><p class="lead">Early and late hours so treatment fits around school, work, and everything else.</p></div>
   <div class="locs">
-    <div class="loc"><iframe loading="lazy" title="Map to Smile 4 Less East El Paso" src="https://maps.google.com/maps?q=12244+Montana+Ave+El+Paso+TX+79938&output=embed"></iframe><div class="lb"><h3><a href="/east-el-paso">East El Paso</a></h3><div class="m">12244 Montana, Bldg A Ste 400<br>El Paso, TX 79938<br>Mon–Fri 7:00am–9:30pm</div><div class="p">(915) 304-3090</div><a class="btn lineT" href="/east-el-paso" style="padding:11px 20px;font-size:14px">View This Office</a></div></div>
-    <div class="loc"><iframe loading="lazy" title="Map to Smile 4 Less West El Paso" src="https://maps.google.com/maps?q=7480+Remcon+Circle+El+Paso+TX+79912&output=embed"></iframe><div class="lb"><h3><a href="/west-el-paso">West El Paso</a></h3><div class="m">7480 Remcon Circle<br>El Paso, TX 79912<br>Mon–Fri 9:00am–5:00pm</div><div class="p">(915) 219-7698</div><a class="btn lineT" href="/west-el-paso" style="padding:11px 20px;font-size:14px">View This Office</a></div></div>
-    <div class="loc"><iframe loading="lazy" title="Map to Smile 4 Less Horizon City" src="https://maps.google.com/maps?q=13468+Eastlake+Blvd+Horizon+City+TX+79928&output=embed"></iframe><div class="lb"><h3><a href="/horizon-city">Horizon City</a></h3><div class="m">13468 Eastlake Blvd<br>Horizon City, TX 79928<br>Mon–Fri 7:00am–4:30pm</div><div class="p">(915) 307-3382</div><a class="btn lineT" href="/horizon-city" style="padding:11px 20px;font-size:14px">View This Office</a></div></div>
+    <div class="loc"><iframe loading="lazy" title="Map to Smile 4 Less East El Paso" src="https://maps.google.com/maps?q=12244+Montana+Ave+El+Paso+TX+79938&output=embed"></iframe><div class="lb"><h3><a href="/east-el-paso">East El Paso</a></h3><div class="m">12244 Montana Ave, Bldg A Ste 400<br>El Paso, TX 79938<br>Mon–Fri 7:00am–9:30pm</div><div class="p"><a href="tel:9153043090">(915) 304-3090</a></div><a class="btn lineT sm" href="/east-el-paso">View This Office</a></div></div>
+    <div class="loc"><iframe loading="lazy" title="Map to Smile 4 Less West El Paso" src="https://maps.google.com/maps?q=7480+Remcon+Circle+El+Paso+TX+79912&output=embed"></iframe><div class="lb"><h3><a href="/west-el-paso">West El Paso</a></h3><div class="m">7480 Remcon Circle<br>El Paso, TX 79912<br>Mon–Fri 9:00am–5:00pm</div><div class="p"><a href="tel:9152197698">(915) 219-7698</a></div><a class="btn lineT sm" href="/west-el-paso">View This Office</a></div></div>
+    <div class="loc"><iframe loading="lazy" title="Map to Smile 4 Less Horizon City" src="https://maps.google.com/maps?q=13468+Eastlake+Blvd+Horizon+City+TX+79928&output=embed"></iframe><div class="lb"><h3><a href="/horizon-city">Horizon City</a></h3><div class="m">13468 Eastlake Blvd<br>Horizon City, TX 79928<br>Mon–Fri 7:00am–4:30pm</div><div class="p"><a href="tel:9153073382">(915) 307-3382</a></div><a class="btn lineT sm" href="/horizon-city">View This Office</a></div></div>
   </div>
 </div></section>
 
