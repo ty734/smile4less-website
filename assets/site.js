@@ -2,11 +2,12 @@
 
 // ---------------------------------------------------------------------------
 // LEAD FORMS
-// TODO(Tyler): set WEBHOOK to the GHL inbound webhook (see the orthoboost-ghl-forms
-// skill). Until it is set the form validates, traps bots, and redirects to the
-// confirmation page so the whole flow can be reviewed, but nothing is POSTed.
+// Submissions go to the Smile 4 Less lead board (repo ty734/lead-board, client
+// "smile4less"), not GoHighLevel. The board only accepts this site's origins, so
+// if the site moves domains, add the new origin to clients/smile4less.ts there.
+// When leads.smile4lessbraces.com is connected, point this at it instead.
 // ---------------------------------------------------------------------------
-var WEBHOOK = "";
+var WEBHOOK = "https://s4l-leads.vercel.app/api/lead";
 var CONFIRM_URL = "/appointment-request-confirmation";
 
 (function () {
@@ -109,6 +110,7 @@ var CONFIRM_URL = "/appointment-request-confirmation";
       data.full_name = data.name; data.first_name = (data.name || "").split(" ")[0];
       data.last_name = (data.name || "").split(" ").slice(1).join(" ");
       data.phone_number = data.phone;
+      data.elapsed = Math.round((Date.now() - loaded) / 100) / 10;   // seconds; the board's bot check uses it
 
       function done() {
         try {
@@ -118,18 +120,38 @@ var CONFIRM_URL = "/appointment-request-confirmation";
         location.href = CONFIRM_URL;
       }
       if (!WEBHOOK) { setTimeout(done, 300); return; }
-      fetch(WEBHOOK, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data)
-      }).then(done).catch(done);
+
+      // Only thank them (and fire the conversion) once the board has the lead.
+      // The board is the only record, so a failure must say so and point to the
+      // phone, never redirect to "thanks" as if it worked. One retry covers a
+      // blip; a 4xx is a validation answer and is not retried.
+      function send(attempt) {
+        fetch(WEBHOOK, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data)
+        }).then(function (r) {
+          if (r.ok) return done();
+          if (r.status >= 500 && attempt < 2) return setTimeout(function () { send(attempt + 1); }, 1200);
+          fail("Sorry, that didn't go through.");
+        }).catch(function () {
+          if (attempt < 2) return setTimeout(function () { send(attempt + 1); }, 1200);
+          fail("We couldn't reach our server. Check your connection and try again.");
+        });
+      }
+      send(1);
     });
   });
 
   // ---- phone field formatting ----
   Array.prototype.forEach.call(document.querySelectorAll("input[type=tel]"), function (i) {
     i.addEventListener("input", function () {
-      var d = digits(i.value).slice(0, 10), o = d;
+      // Drop a leading US country code first: pasting "+1 915 304 3090" used to
+      // keep "1915304309" and fail validation as a bad area code.
+      var d = digits(i.value);
+      if (d.length === 11 && d.charAt(0) === "1") d = d.slice(1);
+      d = d.slice(0, 10);
+      var o = d;
       if (d.length > 6) o = "(" + d.slice(0, 3) + ") " + d.slice(3, 6) + "-" + d.slice(6);
       else if (d.length > 3) o = "(" + d.slice(0, 3) + ") " + d.slice(3);
       i.value = o;
