@@ -5,9 +5,9 @@
 // Submissions go to the Smile 4 Less lead board (repo ty734/lead-board, client
 // "smile4less"), not GoHighLevel. The board only accepts this site's origins, so
 // if the site moves domains, add the new origin to clients/smile4less.ts there.
-// When leads.smile4lessbraces.com is connected, point this at it instead.
+// (s4l-leads.vercel.app is the same board; this is its permanent address.)
 // ---------------------------------------------------------------------------
-var WEBHOOK = "https://s4l-leads.vercel.app/api/lead";
+var WEBHOOK = "https://leads.smile4lessbraces.com/api/lead";
 var CONFIRM_URL = "/appointment-request-confirmation";
 
 (function () {
